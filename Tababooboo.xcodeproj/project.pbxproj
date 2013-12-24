@@ -22,6 +22,7 @@
 		C4B0723A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
 		C4B072421869568300055D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4B072401869568300055D92 /* InfoPlist.strings */; };
 		C4B072441869568300055D92 /* TababoobooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072431869568300055D92 /* TababoobooTests.m */; };
+		C4B0724F1869582300055D92 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0724E1869582300055D92 /* Word.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		C4B0723F1869568300055D92 /* TababoobooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TababoobooTests-Info.plist"; sourceTree = "<group>"; };
 		C4B072411869568300055D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4B072431869568300055D92 /* TababoobooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TababoobooTests.m; sourceTree = "<group>"; };
+		C4B0724D1869582300055D92 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		C4B0724E1869582300055D92 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				C4B0722E1869568300055D92 /* ViewController.m */,
 				C4B072301869568300055D92 /* Images.xcassets */,
 				C4B0721C1869568300055D92 /* Supporting Files */,
+				C4B0724D1869582300055D92 /* Word.h */,
+				C4B0724E1869582300055D92 /* Word.m */,
 			);
 			path = Tababooboo;
 			sourceTree = "<group>";
@@ -202,6 +207,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Tababooboo;
 				TargetAttributes = {
+					C4B072111869568300055D92 = {
+						DevelopmentTeam = KDYRJBGPGV;
+					};
 					C4B072351869568300055D92 = {
 						TestTargetID = C4B072111869568300055D92;
 					};
@@ -254,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B0722F1869568300055D92 /* ViewController.m in Sources */,
+				C4B0724F1869582300055D92 /* Word.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
 				C4B072221869568300055D92 /* main.m in Sources */,
 			);
@@ -392,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
 				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
@@ -405,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
 				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
