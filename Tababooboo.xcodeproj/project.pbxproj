@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4B072161869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
+		C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072171869568300055D92 /* CoreGraphics.framework */; };
+		C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
+		C4B072201869568300055D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4B0721E1869568300055D92 /* InfoPlist.strings */; };
+		C4B072221869568300055D92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072211869568300055D92 /* main.m */; };
+		C4B072261869568300055D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072251869568300055D92 /* AppDelegate.m */; };
+		C4B072291869568300055D92 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B072271869568300055D92 /* Main_iPhone.storyboard */; };
+		C4B0722C1869568300055D92 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B0722A1869568300055D92 /* Main_iPad.storyboard */; };
+		C4B0722F1869568300055D92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0722E1869568300055D92 /* ViewController.m */; };
+		C4B072311869568300055D92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B072301869568300055D92 /* Images.xcassets */; };
+		C4B072381869568300055D92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072371869568300055D92 /* XCTest.framework */; };
+		C4B072391869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
+		C4B0723A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
+		C4B072421869568300055D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4B072401869568300055D92 /* InfoPlist.strings */; };
+		C4B072441869568300055D92 /* TababoobooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072431869568300055D92 /* TababoobooTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4B0723B1869568300055D92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4B0720A1869568200055D92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4B072111869568300055D92;
+			remoteInfo = Tababooboo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C4B072191869568300055D92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C4B0721D1869568300055D92 /* Tababooboo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tababooboo-Info.plist"; sourceTree = "<group>"; };
+		C4B0721F1869568300055D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4B072211869568300055D92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4B072231869568300055D92 /* Tababooboo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tababooboo-Prefix.pch"; sourceTree = "<group>"; };
+		C4B072241869568300055D92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C4B072251869568300055D92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C4B072281869568300055D92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		C4B0722B1869568300055D92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		C4B0722D1869568300055D92 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C4B0722E1869568300055D92 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C4B072301869568300055D92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C4B072361869568300055D92 /* TababoobooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TababoobooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B072371869568300055D92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C4B0723F1869568300055D92 /* TababoobooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TababoobooTests-Info.plist"; sourceTree = "<group>"; };
+		C4B072411869568300055D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4B072431869568300055D92 /* TababoobooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TababoobooTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4B0720F1869568300055D92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */,
+				C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */,
+				C4B072161869568300055D92 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4B072331869568300055D92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B072381869568300055D92 /* XCTest.framework in Frameworks */,
+				C4B0723A1869568300055D92 /* UIKit.framework in Frameworks */,
+				C4B072391869568300055D92 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4B072091869568200055D92 = {
+			isa = PBXGroup;
+			children = (
+				C4B0721B1869568300055D92 /* Tababooboo */,
+				C4B0723D1869568300055D92 /* TababoobooTests */,
+				C4B072141869568300055D92 /* Frameworks */,
+				C4B072131869568300055D92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4B072131869568300055D92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4B072121869568300055D92 /* Tababooboo.app */,
+				C4B072361869568300055D92 /* TababoobooTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4B072141869568300055D92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4B072151869568300055D92 /* Foundation.framework */,
+				C4B072171869568300055D92 /* CoreGraphics.framework */,
+				C4B072191869568300055D92 /* UIKit.framework */,
+				C4B072371869568300055D92 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4B0721B1869568300055D92 /* Tababooboo */ = {
+			isa = PBXGroup;
+			children = (
+				C4B072241869568300055D92 /* AppDelegate.h */,
+				C4B072251869568300055D92 /* AppDelegate.m */,
+				C4B072271869568300055D92 /* Main_iPhone.storyboard */,
+				C4B0722A1869568300055D92 /* Main_iPad.storyboard */,
+				C4B0722D1869568300055D92 /* ViewController.h */,
+				C4B0722E1869568300055D92 /* ViewController.m */,
+				C4B072301869568300055D92 /* Images.xcassets */,
+				C4B0721C1869568300055D92 /* Supporting Files */,
+			);
+			path = Tababooboo;
+			sourceTree = "<group>";
+		};
+		C4B0721C1869568300055D92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4B0721D1869568300055D92 /* Tababooboo-Info.plist */,
+				C4B0721E1869568300055D92 /* InfoPlist.strings */,
+				C4B072211869568300055D92 /* main.m */,
+				C4B072231869568300055D92 /* Tababooboo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4B0723D1869568300055D92 /* TababoobooTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4B072431869568300055D92 /* TababoobooTests.m */,
+				C4B0723E1869568300055D92 /* Supporting Files */,
+			);
+			path = TababoobooTests;
+			sourceTree = "<group>";
+		};
+		C4B0723E1869568300055D92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4B0723F1869568300055D92 /* TababoobooTests-Info.plist */,
+				C4B072401869568300055D92 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4B072111869568300055D92 /* Tababooboo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4B072471869568300055D92 /* Build configuration list for PBXNativeTarget "Tababooboo" */;
+			buildPhases = (
+				C4B0720E1869568300055D92 /* Sources */,
+				C4B0720F1869568300055D92 /* Frameworks */,
+				C4B072101869568300055D92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tababooboo;
+			productName = Tababooboo;
+			productReference = C4B072121869568300055D92 /* Tababooboo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4B072351869568300055D92 /* TababoobooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4B0724A1869568300055D92 /* Build configuration list for PBXNativeTarget "TababoobooTests" */;
+			buildPhases = (
+				C4B072321869568300055D92 /* Sources */,
+				C4B072331869568300055D92 /* Frameworks */,
+				C4B072341869568300055D92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4B0723C1869568300055D92 /* PBXTargetDependency */,
+			);
+			name = TababoobooTests;
+			productName = TababoobooTests;
+			productReference = C4B072361869568300055D92 /* TababoobooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4B0720A1869568200055D92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Tababooboo;
+				TargetAttributes = {
+					C4B072351869568300055D92 = {
+						TestTargetID = C4B072111869568300055D92;
+					};
+				};
+			};
+			buildConfigurationList = C4B0720D1869568200055D92 /* Build configuration list for PBXProject "Tababooboo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4B072091869568200055D92;
+			productRefGroup = C4B072131869568300055D92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4B072111869568300055D92 /* Tababooboo */,
+				C4B072351869568300055D92 /* TababoobooTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4B072101869568300055D92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B0722C1869568300055D92 /* Main_iPad.storyboard in Resources */,
+				C4B072311869568300055D92 /* Images.xcassets in Resources */,
+				C4B072291869568300055D92 /* Main_iPhone.storyboard in Resources */,
+				C4B072201869568300055D92 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4B072341869568300055D92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B072421869568300055D92 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4B0720E1869568300055D92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B0722F1869568300055D92 /* ViewController.m in Sources */,
+				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
+				C4B072221869568300055D92 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4B072321869568300055D92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4B072441869568300055D92 /* TababoobooTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4B0723C1869568300055D92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4B072111869568300055D92 /* Tababooboo */;
+			targetProxy = C4B0723B1869568300055D92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4B0721E1869568300055D92 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B0721F1869568300055D92 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C4B072271869568300055D92 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B072281869568300055D92 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		C4B0722A1869568300055D92 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B0722B1869568300055D92 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		C4B072401869568300055D92 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B072411869568300055D92 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4B072451869568300055D92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4B072461869568300055D92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4B072481869568300055D92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
+				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C4B072491869568300055D92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
+				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C4B0724B1869568300055D92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tababooboo.app/Tababooboo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TababoobooTests/TababoobooTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C4B0724C1869568300055D92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tababooboo.app/Tababooboo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
+				INFOPLIST_FILE = "TababoobooTests/TababoobooTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4B0720D1869568200055D92 /* Build configuration list for PBXProject "Tababooboo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4B072451869568300055D92 /* Debug */,
+				C4B072461869568300055D92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4B072471869568300055D92 /* Build configuration list for PBXNativeTarget "Tababooboo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4B072481869568300055D92 /* Debug */,
+				C4B072491869568300055D92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C4B0724A1869568300055D92 /* Build configuration list for PBXNativeTarget "TababoobooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4B0724B1869568300055D92 /* Debug */,
+				C4B0724C1869568300055D92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4B0720A1869568200055D92 /* Project object */;
+}
