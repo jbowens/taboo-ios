@@ -24,6 +24,7 @@
 		C4B072441869568300055D92 /* TababoobooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072431869568300055D92 /* TababoobooTests.m */; };
 		C4B0724F1869582300055D92 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0724E1869582300055D92 /* Word.m */; };
 		C4B07251186A8ADF00055D92 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B07250186A8ADF00055D92 /* words.json */; };
+		C4B07254186A8CD100055D92 /* WordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B07253186A8CD100055D92 /* WordStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		C4B0724D1869582300055D92 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		C4B0724E1869582300055D92 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		C4B07250186A8ADF00055D92 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		C4B07252186A8CD100055D92 /* WordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordStore.h; sourceTree = "<group>"; };
+		C4B07253186A8CD100055D92 /* WordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				C4B0721C1869568300055D92 /* Supporting Files */,
 				C4B0724D1869582300055D92 /* Word.h */,
 				C4B0724E1869582300055D92 /* Word.m */,
+				C4B07252186A8CD100055D92 /* WordStore.h */,
+				C4B07253186A8CD100055D92 /* WordStore.m */,
 			);
 			path = Tababooboo;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			files = (
 				C4B0722F1869568300055D92 /* ViewController.m in Sources */,
 				C4B0724F1869582300055D92 /* Word.m in Sources */,
+				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
 				C4B072221869568300055D92 /* main.m in Sources */,
 			);
