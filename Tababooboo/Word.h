@@ -10,8 +10,13 @@
 
 @interface Word : NSObject
 
+
 @property (readonly) int id;
 
 @property (readonly) NSString *word;
+
+@property (readonly) NSSet *prohibitedWords;
+
+- (id)initWithId:(int)identifier word:(NSString *)word prohibitedWords:(NSSet *)prohibitedWords;
 
 @end
