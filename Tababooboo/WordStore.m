@@ -7,6 +7,7 @@
 //
 
 #import "WordStore.h"
+#import "Word.h"
 
 @implementation WordStore
 
@@ -31,12 +32,11 @@
         return nil;
     }
     
+    // Add all the parsed words to the store
     for (NSDictionary *item in wordsFromFile) {
         NSLog(@"Item: %@", item);
+        [self->words addObject: [[Word alloc] initFromDictionary: item]];
     }
-    
-    // Add all the parsed words to the store
-    [self->words addObjectsFromArray:wordsFromFile];
     
     return self;
 }

@@ -16,7 +16,6 @@
 
 @implementation Word
 
-
 - (id)initWithId:(int)identifier word:(NSString *)word prohibitedWords:(NSSet *)prohibitedWords {
     if (self = [super init]) {
         if (!word || !prohibitedWords) {
@@ -25,6 +24,19 @@
         self.id = identifier;
         self.word = word;
         self.prohibitedWords = prohibitedWords;
+        return self;
+    } else {
+        return nil;
+    }
+}
+
+- (id)initFromDIctionary:(NSDictionary *)dict {
+    if (self = [super init]) {
+        if (!dict)
+            return nil;
+        self.id = [[dict objectForKey:@"id"] intValue];
+        self.word = [dict objectForKey:@"word"];
+        self.prohibitedWords = [dict objectForKey:@"prohibited"];
         return self;
     } else {
         return nil;
