@@ -12,7 +12,10 @@
 // Stores dem words and shit.
 //
 @interface WordStore : NSObject {
-
     NSMutableArray *words;
+    
+}
 
-} @end
+- (void)loadFromFile:(NSString *)filename;
+
+@end

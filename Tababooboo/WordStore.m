@@ -20,16 +20,19 @@
     
     self->words = [[NSMutableArray alloc] init];
     
+    return self;
+}
+
+- (void) loadFromFile:(NSString *)filename {
     // Parse words.json as json
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
-    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
     NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *e = nil;
     NSArray *wordsFromFile = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error: &e];
     
     if (!wordsFromFile) {
         NSLog(@"Error parsing words.json on word store initialization");
-        return nil;
+        return;
     }
     
     // Add all the parsed words to the store
@@ -37,8 +40,6 @@
         NSLog(@"Item: %@", item);
         [self->words addObject: [[Word alloc] initFromDictionary: item]];
     }
-    
-    return self;
 }
 
 @end

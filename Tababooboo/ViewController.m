@@ -18,8 +18,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
     self->wordStore = [[WordStore alloc] init];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
+    [self->wordStore loadFromFile:filePath];
 }
 
 - (void)didReceiveMemoryWarning
