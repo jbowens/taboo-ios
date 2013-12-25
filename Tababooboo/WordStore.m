@@ -11,8 +11,7 @@
 
 @implementation WordStore
 
-// Initializes the word store by reading words in from the json file
-// included with the app.
+
 - (id) init {
     if (!(self = [super init])) {
         return nil;

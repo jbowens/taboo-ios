@@ -18,7 +18,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     self->wordStore = [[WordStore alloc] init];
+    // Initializes the word store by reading words in from the json file
+    // included with the app.
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
     [self->wordStore loadFromFile:filePath];
 }
