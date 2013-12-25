@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WordStore.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
 
-@end
+    WordStore *wordStore;
+    
+} @end
