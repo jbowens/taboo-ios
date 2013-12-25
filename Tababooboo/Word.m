@@ -30,7 +30,7 @@
     }
 }
 
-- (id)initFromDIctionary:(NSDictionary *)dict {
+- (id)initFromDictionary:(NSDictionary *)dict {
     if (self = [super init]) {
         if (!dict)
             return nil;
