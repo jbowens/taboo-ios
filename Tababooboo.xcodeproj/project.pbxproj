@@ -23,6 +23,7 @@
 		C4B072421869568300055D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4B072401869568300055D92 /* InfoPlist.strings */; };
 		C4B072441869568300055D92 /* TababoobooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072431869568300055D92 /* TababoobooTests.m */; };
 		C4B0724F1869582300055D92 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0724E1869582300055D92 /* Word.m */; };
+		C4B07251186A8ADF00055D92 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B07250186A8ADF00055D92 /* words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C4B072431869568300055D92 /* TababoobooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TababoobooTests.m; sourceTree = "<group>"; };
 		C4B0724D1869582300055D92 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		C4B0724E1869582300055D92 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		C4B07250186A8ADF00055D92 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		C4B0721C1869568300055D92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4B07250186A8ADF00055D92 /* words.json */,
 				C4B0721D1869568300055D92 /* Tababooboo-Info.plist */,
 				C4B0721E1869568300055D92 /* InfoPlist.strings */,
 				C4B072211869568300055D92 /* main.m */,
@@ -243,6 +246,7 @@
 				C4B072311869568300055D92 /* Images.xcassets in Resources */,
 				C4B072291869568300055D92 /* Main_iPhone.storyboard in Resources */,
 				C4B072201869568300055D92 /* InfoPlist.strings in Resources */,
+				C4B07251186A8ADF00055D92 /* words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +489,7 @@
 				C4B072491869568300055D92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4B0724A1869568300055D92 /* Build configuration list for PBXNativeTarget "TababoobooTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				C4B0724C1869568300055D92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
