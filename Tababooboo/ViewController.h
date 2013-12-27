@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "WordStore.h"
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController
 
-    WordStore *wordStore;
-    
-} @end
+@property IBOutlet UILabel *wordLabel;
+@property IBOutlet UILabel *firstProhibited;
+@property IBOutlet UILabel *secondProhibited;
+@property IBOutlet UILabel *thirdProhibited;
+@property IBOutlet UILabel *fourthProhibited;
+@property IBOutlet UILabel *fifthProhibited;
+
+@end

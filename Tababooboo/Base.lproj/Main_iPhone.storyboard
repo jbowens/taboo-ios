@@ -148,6 +148,15 @@
                             <constraint firstItem="0I4-xd-0A2" firstAttribute="top" secondItem="Yez-tN-BfW" secondAttribute="bottom" constant="8" id="zyR-S2-v40"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fifthProhibited" destination="oKn-BC-L7o" id="fVa-3G-4dp"/>
+                        <outlet property="firstProhibited" destination="wFA-sh-9p9" id="IfO-nN-PYd"/>
+                        <outlet property="fourthProhibited" destination="p79-Zj-5Rr" id="HJ8-D7-VFh"/>
+                        <outlet property="secondProhibited" destination="JBl-iX-1y8" id="0gM-ia-iDD"/>
+                        <outlet property="thirdProhibited" destination="Yez-tN-BfW" id="QHm-6G-iu5"/>
+                        <outlet property="view" destination="JBl-iX-1y8" id="Ufb-7d-nD6"/>
+                        <outlet property="wordLabel" destination="nHJ-ek-Jir" id="iER-hR-JRT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
