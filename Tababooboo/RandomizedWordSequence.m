@@ -31,8 +31,9 @@ NSInteger shuffleCmp(id a, id b, void* c)
         self->backingWordStore = store;
         
         // Generate an array containing numbers [0, ..., n-1]
-        NSMutableArray *indices = [NSMutableArray arrayWithCapacity:[store count]];
-        for (int i = 0; i < [indices count]; i++)
+        int wordCount = [store count];
+        NSMutableArray *indices = [NSMutableArray arrayWithCapacity:wordCount];
+        for (int i = 0; i < wordCount; i++)
             indices[i] = [NSNumber numberWithInt:i];
         
         // Shuffle the array by sorting with a randomized comparator.
@@ -55,7 +56,9 @@ NSInteger shuffleCmp(id a, id b, void* c)
     if (self->nextIndex >= [self->randomizedIndices count])
         return nil;
     
-    return [self->backingWordStore get:[self->randomizedIndices[self->nextIndex++] integerValue]];
+    int wordStoreIndex = [self->randomizedIndices[self->nextIndex++] integerValue];
+    
+    return [self->backingWordStore get:wordStoreIndex];
 }
 
 

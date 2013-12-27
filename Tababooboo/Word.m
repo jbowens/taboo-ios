@@ -34,6 +34,7 @@
     if (self = [super init]) {
         if (!dict)
             return nil;
+        NSLog(@"dict = %@\n", dict);
         self.id = [[dict objectForKey:@"id"] intValue];
         self.word = [dict objectForKey:@"word"];
         self.prohibitedWords = [dict objectForKey:@"prohibited"];

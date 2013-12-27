@@ -1,1 +1,1 @@
- [{"id": 1, "word": "test", "prohibited": ["lol"]}]
+[{"id": 1, "word":"France", "prohibited": ["french", "country", "europe", "republic", "louis"]}]

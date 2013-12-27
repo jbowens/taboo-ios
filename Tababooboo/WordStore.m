@@ -23,6 +23,8 @@
 }
 
 - (void) loadFromFile:(NSString *)filename {
+    NSLog(@"Loading words from %@\n", filename);
+    
     // Parse words.json as json
     NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
     NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
@@ -39,6 +41,8 @@
         NSLog(@"Item: %@", item);
         [self->words addObject: [[Word alloc] initFromDictionary: item]];
     }
+    
+    NSLog(@"WordStore count is %d\n", [self->words count]);
 }
 
 - (int) count {
