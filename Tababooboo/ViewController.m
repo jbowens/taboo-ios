@@ -55,6 +55,19 @@
     [self.thirdProhibited setText: prohibitedWords[2]];
     [self.fourthProhibited setText: prohibitedWords[3]];
     [self.fifthProhibited setText: prohibitedWords[4]];
+    
+    // Scale the font size of the prohibited words so that all prohibited
+    // words are displayed at the same font size, but the characters all fit
+    // in the label.
+    CGSize size = [self.firstProhibited.text sizeWithAttributes:@{NSFontAttributeName: self.firstProhibited.font}];
+    float pointsPerPixel = self.firstProhibited.font.pointSize / size.height;
+    float desiredPointSize = self.firstProhibited.frame.size.height * pointsPerPixel;
+    UIFont *newFont = [UIFont fontWithName:self.firstProhibited.font.fontName size:desiredPointSize];
+    self.firstProhibited.font = newFont;
+    self.secondProhibited.font = newFont;
+    self.thirdProhibited.font = newFont;
+    self.fourthProhibited.font = newFont;
+    self.fifthProhibited.font = newFont;
 }
 
 - (void)beginNewRound
