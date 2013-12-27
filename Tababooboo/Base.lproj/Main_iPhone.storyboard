@@ -154,7 +154,7 @@
                         <outlet property="fourthProhibited" destination="p79-Zj-5Rr" id="HJ8-D7-VFh"/>
                         <outlet property="secondProhibited" destination="JBl-iX-1y8" id="0gM-ia-iDD"/>
                         <outlet property="thirdProhibited" destination="Yez-tN-BfW" id="QHm-6G-iu5"/>
-                        <outlet property="view" destination="JBl-iX-1y8" id="Ufb-7d-nD6"/>
+                        <outlet property="view" destination="kh9-bI-dsS" id="Gd5-Fx-1lO"/>
                         <outlet property="wordLabel" destination="nHJ-ek-Jir" id="iER-hR-JRT"/>
                     </connections>
                 </viewController>
