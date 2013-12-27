@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C470CFCF186D58E200D73F5E /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFCE186D58E200D73F5E /* Round.m */; };
+		C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */; };
 		C4B072161869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
 		C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072171869568300055D92 /* CoreGraphics.framework */; };
 		C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C470CFCD186D58E200D73F5E /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		C470CFCE186D58E200D73F5E /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
+		C470CFD0186D5B4C00D73F5E /* RandomizedWordSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedWordSequence.h; sourceTree = "<group>"; };
+		C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedWordSequence.m; sourceTree = "<group>"; };
 		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +140,10 @@
 				C4B0724E1869582300055D92 /* Word.m */,
 				C4B07252186A8CD100055D92 /* WordStore.h */,
 				C4B07253186A8CD100055D92 /* WordStore.m */,
+				C470CFCD186D58E200D73F5E /* Round.h */,
+				C470CFCE186D58E200D73F5E /* Round.m */,
+				C470CFD0186D5B4C00D73F5E /* RandomizedWordSequence.h */,
+				C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */,
 			);
 			path = Tababooboo;
 			sourceTree = "<group>";
@@ -270,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
+				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
 				C4B0722F1869568300055D92 /* ViewController.m in Sources */,
 				C4B0724F1869582300055D92 /* Word.m in Sources */,
 				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,

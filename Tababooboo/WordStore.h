@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Word.h"
 
 //
 // Stores dem words and shit.
@@ -16,6 +17,11 @@
     
 }
 
+
 - (void)loadFromFile:(NSString *)filename;
+
+- (int)count;
+
+- (Word *)get:(int)index;
 
 @end

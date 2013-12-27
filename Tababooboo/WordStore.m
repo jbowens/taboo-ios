@@ -41,4 +41,12 @@
     }
 }
 
+- (int) count {
+    return [self->words count];
+}
+
+- (Word *) get:(int)index {
+    return self->words[index];
+}
+
 @end
