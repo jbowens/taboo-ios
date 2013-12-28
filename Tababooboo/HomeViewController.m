@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        self.navigationItem.hidesBackButton = YES;
     }
     return self;
 }

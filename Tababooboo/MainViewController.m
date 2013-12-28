@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "HomeViewController.h"
 #import "SelectTimeViewController.h"
+#import "GameViewController.h"
 #import "RandomizedWordSequence.h"
 
 @interface MainViewController ()
@@ -27,6 +28,7 @@
 
 @property HomeViewController        *homeController;
 @property SelectTimeViewController  *selectTimeController;
+@property GameViewController *gameController;
 
 @end
 
@@ -56,6 +58,8 @@
     self.homeController.delegate = self;
     self.selectTimeController = [[SelectTimeViewController alloc] init];
     self.selectTimeController.delegate = self;
+    self.gameController = [[GameViewController alloc] init];
+    self.gameController.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -74,6 +78,12 @@
 - (void)switchToSelectTimeController
 {
     [self pushViewController:self.selectTimeController animated:NO];
+}
+
+- (void)switchToGameController
+{
+    self.gameController.secondsLeft = self.selectTimeController.selectedTimeLimit;
+    [self pushViewController:self.gameController animated:NO];
 }
 
 - (void)goBack

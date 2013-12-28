@@ -39,7 +39,9 @@
 {
     self = [super init];
     if (self) {
+        self.selectedTimeLimit = 0;
         // Custom initialization
+        self.navigationItem.hidesBackButton = YES;
     }
     return self;
 }
@@ -51,6 +53,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:129/255.0f green:17/255.0f blue:117/255.0f alpha:1.0f];
     [self addOptionButton];
     [self addBackButton];
+    [self addStartGameButton];
 }
 
 - (void)addOptionButton
@@ -115,6 +118,27 @@
 - (void)goBack
 {
     [self.delegate goBack];
+}
+
+- (void)addStartGameButton
+{
+    self.startGameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.startGameButton.frame = CGRectMake(self.view.frame.size.width-100.0, self.view.frame.size.height-50.0, 100.0, 30.0);
+    [self.startGameButton setTitle:@"Start" forState:UIControlStateNormal];
+    self.startGameButton.backgroundColor = [UIColor clearColor];
+    [self.startGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    // TODO: customize UI components (styling for buttons, etc)
+    [self.startGameButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.startGameButton];
+}
+
+- (void)startGame
+{
+    if (self.selectedTimeLimit != 0) {
+        [self.delegate switchToGameController];
+    } else {
+        NSLog(@"Error: Select a time limit.");
+    }
 }
 
 - (void)didReceiveMemoryWarning
