@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "Constants.h"
 
 @interface GameViewController ()
 
@@ -28,11 +29,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:129/255.0f green:17/255.0f blue:117/255.0f alpha:1.0f];
+    self.view.backgroundColor = PrimaryBackgroundColor;
     self.timerLabel = [[UILabel alloc] init];
     self.timerLabel.frame = CGRectMake(self.view.frame.size.width/2 - 25, 75, 50, 20);
     [self.timerLabel setBackgroundColor:[UIColor clearColor]];
-    [self.timerLabel setTextColor:[UIColor blackColor]];
+    [self.timerLabel setTextColor:PrimaryHeaderColor];
     int initMinutes = (self.secondsLeft%3600)/60;
     int initSeconds = (self.secondsLeft%3600)%60;
     self.timerLabel.text =[NSString stringWithFormat:@"%02d:%02d", initMinutes, initSeconds];

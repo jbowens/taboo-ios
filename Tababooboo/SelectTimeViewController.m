@@ -7,6 +7,7 @@
 //
 
 #import "SelectTimeViewController.h"
+#import "Constants.h"
 
 @interface OptionButton : UIButton
     @property int optionTimeLimit;
@@ -50,7 +51,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:129/255.0f green:17/255.0f blue:117/255.0f alpha:1.0f];
+    self.view.backgroundColor = PrimaryBackgroundColor;
     [self addOptionButton];
     [self addBackButton];
     [self addStartGameButton];
@@ -62,8 +63,8 @@
     self.option1Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
     self.option1Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2-50.0, 100.0, 30.0);
     [self.option1Button setTitle:@"60 seconds" forState:UIControlStateNormal];
-    self.option1Button.backgroundColor = [UIColor clearColor];
-    [self.option1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.option1Button.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.option1Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
     // TODO: customize components (styling for buttons, etc)
     self.option1Button.optionTimeLimit = 60;
     [self.option1Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
@@ -73,8 +74,8 @@
     self.option2Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
     self.option2Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2, 100.0, 30.0);
     [self.option2Button setTitle:@"90 seconds" forState:UIControlStateNormal];
-    self.option2Button.backgroundColor = [UIColor clearColor];
-    [self.option2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.option2Button.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.option2Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
     // TODO: customize UI components (styling for buttons, etc)
     self.option2Button.optionTimeLimit = 90;
     [self.option2Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
@@ -84,8 +85,8 @@
     self.option3Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
     self.option3Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2+50.0, 100.0, 30.0);
     [self.option3Button setTitle:@"120 seconds" forState:UIControlStateNormal];
-    self.option3Button.backgroundColor = [UIColor clearColor];
-    [self.option3Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.option3Button.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.option3Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
     // TODO: customize UI components (styling for buttons, etc)
     self.option3Button.optionTimeLimit = 120;
     [self.option3Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +101,7 @@
     self.option1Button.backgroundColor = [UIColor clearColor];
     self.option2Button.backgroundColor = [UIColor clearColor];
     self.option3Button.backgroundColor = [UIColor clearColor];
-    buttonClicked.backgroundColor = [UIColor blackColor];
+    buttonClicked.backgroundColor = PrimarySelectedButtonBackgroundColor;
 }
 
 - (void)addBackButton
@@ -108,8 +109,8 @@
     self.backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.backButton.frame = CGRectMake(10, self.view.frame.size.height-50.0, 100.0, 30.0);
     [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
-    self.backButton.backgroundColor = [UIColor clearColor];
-    [self.backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.backButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.backButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
     // TODO: customize UI components (styling for buttons, etc)
     [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
@@ -125,8 +126,8 @@
     self.startGameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.startGameButton.frame = CGRectMake(self.view.frame.size.width-100.0, self.view.frame.size.height-50.0, 100.0, 30.0);
     [self.startGameButton setTitle:@"Start" forState:UIControlStateNormal];
-    self.startGameButton.backgroundColor = [UIColor clearColor];
-    [self.startGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.startGameButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.startGameButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
     // TODO: customize UI components (styling for buttons, etc)
     [self.startGameButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.startGameButton];

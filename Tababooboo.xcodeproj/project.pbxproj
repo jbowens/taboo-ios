@@ -10,6 +10,8 @@
 		C470CFCF186D58E200D73F5E /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFCE186D58E200D73F5E /* Round.m */; };
 		C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */; };
 		C471AB68186E58F000E7206E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB67186E58F000E7206E /* HomeViewController.m */; };
+		C471AB6B186F7C5C00E7206E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB6A186F7C5C00E7206E /* GameViewController.m */; };
+		C471AB6E186F8DAF00E7206E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB6D186F8DAF00E7206E /* Constants.m */; };
 		C4B072161869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
 		C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072171869568300055D92 /* CoreGraphics.framework */; };
 		C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
@@ -48,6 +50,10 @@
 		C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedWordSequence.m; sourceTree = "<group>"; };
 		C471AB66186E58F000E7206E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C471AB67186E58F000E7206E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C471AB69186F7C5C00E7206E /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		C471AB6A186F7C5C00E7206E /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		C471AB6C186F8DAF00E7206E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C471AB6D186F8DAF00E7206E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +140,8 @@
 		C4B0721B1869568300055D92 /* Tababooboo */ = {
 			isa = PBXGroup;
 			children = (
+				C471AB69186F7C5C00E7206E /* GameViewController.h */,
+				C471AB6A186F7C5C00E7206E /* GameViewController.m */,
 				D4E93707186E62B500DD000A /* SelectTimeViewController.h */,
 				D4E93708186E62B500DD000A /* SelectTimeViewController.m */,
 				C4B072241869568300055D92 /* AppDelegate.h */,
@@ -154,6 +162,8 @@
 				C470CFCE186D58E200D73F5E /* Round.m */,
 				C470CFD0186D5B4C00D73F5E /* RandomizedWordSequence.h */,
 				C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */,
+				C471AB6C186F8DAF00E7206E /* Constants.h */,
+				C471AB6D186F8DAF00E7206E /* Constants.m */,
 			);
 			path = Tababooboo;
 			sourceTree = "<group>";
@@ -290,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C471AB6E186F8DAF00E7206E /* Constants.m in Sources */,
+				C471AB6B186F7C5C00E7206E /* GameViewController.m in Sources */,
 				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
 				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
 				C4B0722F1869568300055D92 /* MainViewController.m in Sources */,
