@@ -17,7 +17,7 @@
 		C4B072261869568300055D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B072251869568300055D92 /* AppDelegate.m */; };
 		C4B072291869568300055D92 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B072271869568300055D92 /* Main_iPhone.storyboard */; };
 		C4B0722C1869568300055D92 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B0722A1869568300055D92 /* Main_iPad.storyboard */; };
-		C4B0722F1869568300055D92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0722E1869568300055D92 /* ViewController.m */; };
+		C4B0722F1869568300055D92 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0722E1869568300055D92 /* MainViewController.m */; };
 		C4B072311869568300055D92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B072301869568300055D92 /* Images.xcassets */; };
 		C4B072381869568300055D92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072371869568300055D92 /* XCTest.framework */; };
 		C4B072391869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
@@ -56,8 +56,8 @@
 		C4B072251869568300055D92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C4B072281869568300055D92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		C4B0722B1869568300055D92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		C4B0722D1869568300055D92 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C4B0722E1869568300055D92 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C4B0722D1869568300055D92 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C4B0722E1869568300055D92 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C4B072301869568300055D92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4B072361869568300055D92 /* TababoobooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TababoobooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072371869568300055D92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -132,8 +132,8 @@
 				C4B072251869568300055D92 /* AppDelegate.m */,
 				C4B072271869568300055D92 /* Main_iPhone.storyboard */,
 				C4B0722A1869568300055D92 /* Main_iPad.storyboard */,
-				C4B0722D1869568300055D92 /* ViewController.h */,
-				C4B0722E1869568300055D92 /* ViewController.m */,
+				C4B0722D1869568300055D92 /* MainViewController.h */,
+				C4B0722E1869568300055D92 /* MainViewController.m */,
 				C4B072301869568300055D92 /* Images.xcassets */,
 				C4B0721C1869568300055D92 /* Supporting Files */,
 				C4B0724D1869582300055D92 /* Word.h */,
@@ -282,7 +282,7 @@
 			files = (
 				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
 				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
-				C4B0722F1869568300055D92 /* ViewController.m in Sources */,
+				C4B0722F1869568300055D92 /* MainViewController.m in Sources */,
 				C4B0724F1869582300055D92 /* Word.m in Sources */,
 				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
