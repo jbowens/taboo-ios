@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C470CFCF186D58E200D73F5E /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFCE186D58E200D73F5E /* Round.m */; };
 		C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */; };
+		C471AB68186E58F000E7206E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB67186E58F000E7206E /* HomeViewController.m */; };
 		C4B072161869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
 		C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072171869568300055D92 /* CoreGraphics.framework */; };
 		C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 		C470CFCE186D58E200D73F5E /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		C470CFD0186D5B4C00D73F5E /* RandomizedWordSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedWordSequence.h; sourceTree = "<group>"; };
 		C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedWordSequence.m; sourceTree = "<group>"; };
+		C471AB66186E58F000E7206E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C471AB67186E58F000E7206E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				C4B072241869568300055D92 /* AppDelegate.h */,
+				C471AB66186E58F000E7206E /* HomeViewController.h */,
+				C471AB67186E58F000E7206E /* HomeViewController.m */,
 				C4B072251869568300055D92 /* AppDelegate.m */,
 				C4B072271869568300055D92 /* Main_iPhone.storyboard */,
 				C4B0722A1869568300055D92 /* Main_iPad.storyboard */,
@@ -287,6 +292,7 @@
 				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
 				C4B072221869568300055D92 /* main.m in Sources */,
+				C471AB68186E58F000E7206E /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
