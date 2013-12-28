@@ -127,7 +127,7 @@
     self.startGameButton.frame = CGRectMake(self.view.frame.size.width-100.0, self.view.frame.size.height-50.0, 100.0, 30.0);
     [self.startGameButton setTitle:@"Start" forState:UIControlStateNormal];
     self.startGameButton.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.startGameButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
+    [self.startGameButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
     // TODO: customize UI components (styling for buttons, etc)
     [self.startGameButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.startGameButton];

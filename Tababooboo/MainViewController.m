@@ -28,7 +28,7 @@
 
 @property HomeViewController        *homeController;
 @property SelectTimeViewController  *selectTimeController;
-@property GameViewController *gameController;
+@property GameViewController        *gameController;
 
 @end
 
