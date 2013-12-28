@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "HomeViewController.h"
 #import "RandomizedWordSequence.h"
 
 @interface MainViewController ()
@@ -18,6 +19,13 @@
 /// next words to display.
 @property RandomizedWordSequence    *currentSequence;
 
+
+///////////////////////////////////////////////////////
+/// Other view controllers
+///////////////////////////////////////////////////////
+
+@property HomeViewController        *homeController;
+
 @end
 
 @implementation MainViewController
@@ -27,7 +35,11 @@
     if (!(self = [super init])) {
         return nil;
     }
-    
+    return self;
+}
+
+- (void)setup
+{
     self.wordStore = [[WordStore alloc] init];
     
     // Initializes the word store by reading words in from the json file
@@ -37,14 +49,21 @@
     
     self.currentSequence = [[RandomizedWordSequence alloc] initWithWordStore:self.wordStore];
     
-    return self;
+    // Init the other view controllers
+    self.homeController = [[HomeViewController alloc] init];
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self setup];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Quick! go to the home controller!
+    [self presentViewController:self.homeController animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -25,6 +25,7 @@
             </objects>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.40548573370000002" green="0.04002148774" blue="0.40089000289999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
