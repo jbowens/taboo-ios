@@ -33,11 +33,11 @@
 
 -(void)addPlayButton
 {
-    UIButton *playButton = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
-    playButton.frame = CGRectMake(110.0, 360.0, 100.0, 30.0);
-    [playButton setTitle:@"Play" forState:UIControlStateNormal];
-    playButton.backgroundColor = [UIColor clearColor];
-    [playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.playButton.frame = CGRectMake(110.0, 360.0, 100.0, 30.0);
+    [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    self.playButton.backgroundColor = [UIColor clearColor];
+    [self.playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     // TODO: add final UI componenets (styling for buttons, etc)
     // example code for how to add background img for normal and highlighted buttons
     //    UIImage *buttonImageNormal = [UIImage imageNamed:@"blueButton.png"];
@@ -46,7 +46,7 @@
     //    UIImage *buttonImagePressed = [UIImage imageNamed:@"whiteButton.png"];
     //    UIImage *strechableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     //    [playButton setBackgroundImage:strechableButtonImagePressed forState:UIControlStateHighlighted];
-    [playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playButton];
 }
 
