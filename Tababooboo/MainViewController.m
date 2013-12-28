@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "HomeViewController.h"
+#import "SelectTimeViewController.h"
 #import "RandomizedWordSequence.h"
 
 @interface MainViewController ()
@@ -25,6 +26,7 @@
 ///////////////////////////////////////////////////////
 
 @property HomeViewController        *homeController;
+@property SelectTimeViewController  *selectTimeController;
 
 @end
 
@@ -51,6 +53,9 @@
     
     // Init the other view controllers
     self.homeController = [[HomeViewController alloc] init];
+    self.homeController.delegate = self;
+    self.selectTimeController = [[SelectTimeViewController alloc] init];
+    self.selectTimeController.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -63,7 +68,17 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // Quick! go to the home controller!
-    [self presentViewController:self.homeController animated:NO completion:nil];
+    [self pushViewController:self.homeController animated:NO];
+}
+
+- (void)switchToSelectTimeController
+{
+    [self pushViewController:self.selectTimeController animated:NO];
+}
+
+- (void)goBack
+{
+    [self popToRootViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning

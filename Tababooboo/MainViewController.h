@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WordStore.h"
-#import "HomeViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UINavigationController
 
 @end

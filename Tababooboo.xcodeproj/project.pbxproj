@@ -28,6 +28,7 @@
 		C4B0724F1869582300055D92 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0724E1869582300055D92 /* Word.m */; };
 		C4B07251186A8ADF00055D92 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B07250186A8ADF00055D92 /* words.json */; };
 		C4B07254186A8CD100055D92 /* WordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B07253186A8CD100055D92 /* WordStore.m */; };
+		D4E93709186E62B500DD000A /* SelectTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E93708186E62B500DD000A /* SelectTimeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		C4B07250186A8ADF00055D92 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		C4B07252186A8CD100055D92 /* WordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordStore.h; sourceTree = "<group>"; };
 		C4B07253186A8CD100055D92 /* WordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordStore.m; sourceTree = "<group>"; };
+		D4E93707186E62B500DD000A /* SelectTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeViewController.h; sourceTree = "<group>"; };
+		D4E93708186E62B500DD000A /* SelectTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 		C4B0721B1869568300055D92 /* Tababooboo */ = {
 			isa = PBXGroup;
 			children = (
+				D4E93707186E62B500DD000A /* SelectTimeViewController.h */,
+				D4E93708186E62B500DD000A /* SelectTimeViewController.m */,
 				C4B072241869568300055D92 /* AppDelegate.h */,
 				C471AB66186E58F000E7206E /* HomeViewController.h */,
 				C471AB67186E58F000E7206E /* HomeViewController.m */,
@@ -288,6 +293,7 @@
 				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
 				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
 				C4B0722F1869568300055D92 /* MainViewController.m in Sources */,
+				D4E93709186E62B500DD000A /* SelectTimeViewController.m in Sources */,
 				C4B0724F1869582300055D92 /* Word.m in Sources */,
 				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,

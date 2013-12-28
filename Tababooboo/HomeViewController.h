@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HomeViewControllerDelegate <NSObject>
+
+/**
+ Called when a HomeViewControllerDelegate wants to switch to a SelectTimeViewController
+ */
+- (void)switchToSelectTimeController;
+
+@end
+
 @interface HomeViewController : UIViewController
+
+void playAction();
+void rulesAction();
 
 @property IBOutlet UIButton *playButton;
 @property IBOutlet UIButton *rulesButton;
-
-void playAction();
+@property (weak, nonatomic) id<HomeViewControllerDelegate> delegate;
 
 @end
