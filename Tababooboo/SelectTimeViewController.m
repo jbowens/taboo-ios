@@ -52,55 +52,153 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
-    [self addOptionButton];
+    [self addOptionButtons];
     [self addBackButton];
     [self addStartGameButton];
 }
 
-- (void)addOptionButton
+- (OptionButton *) createOption
 {
+    OptionButton *optionButton = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
+    optionButton.translatesAutoresizingMaskIntoConstraints = NO;
+    optionButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [optionButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    optionButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    optionButton.titleLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    optionButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    optionButton.titleLabel.minimumScaleFactor = 0.1;
+    optionButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    [optionButton addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return optionButton;
+}
+
+- (void)addOptionButtons
+{
+    UIView *optionsView = [[UIView alloc] init];
+    optionsView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     // setting up option 1 button
-    self.option1Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
-    self.option1Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2-50.0, 100.0, 30.0);
+    self.option1Button = [self createOption];
     [self.option1Button setTitle:@"60 seconds" forState:UIControlStateNormal];
-    self.option1Button.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.option1Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
-    // TODO: customize components (styling for buttons, etc)
     self.option1Button.optionTimeLimit = 60;
-    [self.option1Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.option1Button];
+    [optionsView addSubview:self.option1Button];
     
     // setting up option 2 button
-    self.option2Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
-    self.option2Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2, 100.0, 30.0);
+    self.option2Button = [self createOption];
     [self.option2Button setTitle:@"90 seconds" forState:UIControlStateNormal];
-    self.option2Button.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.option2Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
-    // TODO: customize UI components (styling for buttons, etc)
     self.option2Button.optionTimeLimit = 90;
-    [self.option2Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.option2Button];
+    [optionsView addSubview:self.option2Button];
     
-    // setting up option 1 button
-    self.option3Button = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
-    self.option3Button.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2+50.0, 100.0, 30.0);
+    // setting up option 3 button
+    self.option3Button = [self createOption];
     [self.option3Button setTitle:@"120 seconds" forState:UIControlStateNormal];
-    self.option3Button.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.option3Button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
-    // TODO: customize UI components (styling for buttons, etc)
     self.option3Button.optionTimeLimit = 120;
-    [self.option3Button addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.option3Button];
+    [optionsView addSubview:self.option3Button];
     
+    [self.view addSubview:optionsView];
+    
+    
+    NSDictionary *viewDict = @{
+                               @"optionsView": optionsView,
+                                       @"one": self.option1Button,
+                                       @"two": self.option2Button,
+                                     @"three": self.option3Button
+                              };
+    
+    // Position the options within the option view
+    //NSArray *constraintStrs = @[@"V:|[one]", @"V:[three]|", @"[one(==two)]", @"[two(==three)]",
+    //                            @"V:[one(==two)]", @"V:[two(==three)]", @"H:|[one]|", @"H:|[three]|"];
+    NSArray *constraintStrs = @[@"|[one]|", @"|[two]|", @"|[three]|", @"V:|[one]", @"V:[three]|"];
+    for (NSString *s in constraintStrs) {
+        [optionsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:s
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:viewDict]];
+    }
+    // Make all the options 25% the height of the option view
+    
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option1Button
+                                                            attribute:NSLayoutAttributeHeight
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeHeight
+                                                           multiplier:0.25
+                                                             constant:0]];
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option2Button
+                                                            attribute:NSLayoutAttributeHeight
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeHeight
+                                                           multiplier:0.25
+                                                             constant:0]];
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option3Button
+                                                            attribute:NSLayoutAttributeHeight
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeHeight
+                                                           multiplier:0.25
+                                                             constant:0]];
+    // Make the second object centered in the middle
+    
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option2Button
+                                                            attribute:NSLayoutAttributeCenterX
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeCenterX
+                                                           multiplier:1.0
+                                                             constant:0]];
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option2Button
+                                                            attribute:NSLayoutAttributeCenterY
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeCenterY
+                                                           multiplier:1.0
+                                                             constant:0]];
+    
+    
+    
+    // Position the optionsView container
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:0.5
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeWidth
+                                                         multiplier:0.5
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    
+                               
 }
 
 - (void)setTimeLimit:(id)sender
 {
     OptionButton *buttonClicked = (OptionButton *)sender;
     self.selectedTimeLimit = buttonClicked.optionTimeLimit;
-    self.option1Button.backgroundColor = [UIColor clearColor];
-    self.option2Button.backgroundColor = [UIColor clearColor];
-    self.option3Button.backgroundColor = [UIColor clearColor];
+    self.option1Button.backgroundColor = PrimaryButtonBackgroundColor;
+    self.option2Button.backgroundColor = PrimaryButtonBackgroundColor;
+    self.option3Button.backgroundColor = PrimaryButtonBackgroundColor;
     buttonClicked.backgroundColor = PrimarySelectedButtonBackgroundColor;
 }
 
@@ -111,7 +209,6 @@
     [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
     self.backButton.backgroundColor = PrimaryButtonBackgroundColor;
     [self.backButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
-    // TODO: customize UI components (styling for buttons, etc)
     [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
 }

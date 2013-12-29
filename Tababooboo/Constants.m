@@ -15,6 +15,8 @@ UIColor *PrimarySelectedButtonBackgroundColor;
 
 UIColor *SecondaryHeaderColor;
 
+int InfiniteFontSize;
+
 
 @implementation Constants
 
@@ -25,6 +27,8 @@ UIColor *SecondaryHeaderColor;
     PrimarySelectedButtonBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
     
     SecondaryHeaderColor = [UIColor colorWithWhite:0.3 alpha:1.0];
+    
+    InfiniteFontSize = 200;
 }
 
 @end

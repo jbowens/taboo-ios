@@ -15,5 +15,7 @@ extern UIColor *PrimarySelectedButtonBackgroundColor;
 
 extern UIColor *SecondaryHeaderColor;
 
+extern int InfiniteFontSize;
+
 @interface Constants : NSObject
 @end
