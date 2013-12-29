@@ -76,18 +76,18 @@
 
 - (void)addOptionButtons
 {
-    FontEqualizingView *optionsView = [[FontEqualizingView alloc] init];
+    UIView *optionsView = [[UIView alloc] init];
     optionsView.translatesAutoresizingMaskIntoConstraints = NO;
     
     // setting up option 1 button
     self.option1Button = [self createOption];
-    [self.option1Button setTitle:@"60 seconds" forState:UIControlStateNormal];
+    [self.option1Button setTitle:@" 60 seconds" forState:UIControlStateNormal];
     self.option1Button.optionTimeLimit = 60;
     [optionsView addSubview:self.option1Button];
     
     // setting up option 2 button
     self.option2Button = [self createOption];
-    [self.option2Button setTitle:@"90 seconds" forState:UIControlStateNormal];
+    [self.option2Button setTitle:@" 90 seconds" forState:UIControlStateNormal];
     self.option2Button.optionTimeLimit = 90;
     [optionsView addSubview:self.option2Button];
     
@@ -186,16 +186,6 @@
                                                           attribute:NSLayoutAttributeCenterY
                                                          multiplier:1.0
                                                            constant:0.0]];
-    
-    // Equalize the fonts of the option title labels
-    [optionsView addEqualFontsView:self.option1Button.titleLabel];
-    [optionsView addEqualFontsView:self.option2Button.titleLabel];
-    [optionsView addEqualFontsView:self.option3Button.titleLabel];
-}
-
-- (void)updateOptionFonts:(NSNotification *)notif
-{
-    NSLog(@"layout changed");
 }
 
 - (void)setTimeLimit:(id)sender
