@@ -48,8 +48,6 @@
     
     [self createPlayButton];
     [self createRulesButton];
-    
-    NSDictionary *viewsDict = @{@"play": self.playButton, @"rules": self.rulesButton, @"buttonView": buttonView};
 
     [buttonView addSubview: self.playButton];
     [buttonView addSubview: self.rulesButton];
@@ -57,6 +55,7 @@
     self.rulesButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add AutoLayout constraints
+    NSDictionary *viewsDict = @{@"play": self.playButton, @"rules": self.rulesButton, @"buttonView": buttonView};
     NSArray *strConstraints = @[@"V:|-[play]-80-[rules]-|", @"V:[play(==rules)]", @"H:|-[play]-|", @"H:|-[rules]-|"];
     for (NSString *s in strConstraints) {
         [buttonView addConstraints: [NSLayoutConstraint
