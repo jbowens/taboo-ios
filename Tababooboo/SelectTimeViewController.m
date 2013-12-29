@@ -7,7 +7,6 @@
 //
 
 #import "SelectTimeViewController.h"
-#import "FontEqualizingView.h"
 #import "Constants.h"
 
 @interface OptionButton : UIButton

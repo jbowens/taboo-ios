@@ -12,7 +12,6 @@
 		C471AB68186E58F000E7206E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB67186E58F000E7206E /* HomeViewController.m */; };
 		C471AB6B186F7C5C00E7206E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB6A186F7C5C00E7206E /* GameViewController.m */; };
 		C471AB6E186F8DAF00E7206E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB6D186F8DAF00E7206E /* Constants.m */; };
-		C471AB71186FD3AD00E7206E /* FontEqualizingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB70186FD3AD00E7206E /* FontEqualizingView.m */; };
 		C4B072161869568300055D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072151869568300055D92 /* Foundation.framework */; };
 		C4B072181869568300055D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072171869568300055D92 /* CoreGraphics.framework */; };
 		C4B0721A1869568300055D92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B072191869568300055D92 /* UIKit.framework */; };
@@ -55,8 +54,6 @@
 		C471AB6A186F7C5C00E7206E /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		C471AB6C186F8DAF00E7206E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C471AB6D186F8DAF00E7206E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		C471AB6F186FD3AD00E7206E /* FontEqualizingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontEqualizingView.h; sourceTree = "<group>"; };
-		C471AB70186FD3AD00E7206E /* FontEqualizingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontEqualizingView.m; sourceTree = "<group>"; };
 		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,8 +164,6 @@
 				C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */,
 				C471AB6C186F8DAF00E7206E /* Constants.h */,
 				C471AB6D186F8DAF00E7206E /* Constants.m */,
-				C471AB6F186FD3AD00E7206E /* FontEqualizingView.h */,
-				C471AB70186FD3AD00E7206E /* FontEqualizingView.m */,
 			);
 			path = Tababooboo;
 			sourceTree = "<group>";
@@ -312,7 +307,6 @@
 				C4B0722F1869568300055D92 /* MainViewController.m in Sources */,
 				D4E93709186E62B500DD000A /* SelectTimeViewController.m in Sources */,
 				C4B0724F1869582300055D92 /* Word.m in Sources */,
-				C471AB71186FD3AD00E7206E /* FontEqualizingView.m in Sources */,
 				C4B07254186A8CD100055D92 /* WordStore.m in Sources */,
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
 				C4B072221869568300055D92 /* main.m in Sources */,
