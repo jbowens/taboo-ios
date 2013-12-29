@@ -107,8 +107,6 @@
                               };
     
     // Position the options within the option view
-    //NSArray *constraintStrs = @[@"V:|[one]", @"V:[three]|", @"[one(==two)]", @"[two(==three)]",
-    //                            @"V:[one(==two)]", @"V:[two(==three)]", @"H:|[one]|", @"H:|[three]|"];
     NSArray *constraintStrs = @[@"|[one]|", @"|[two]|", @"|[three]|", @"V:|[one]", @"V:[three]|"];
     for (NSString *s in constraintStrs) {
         [optionsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:s
