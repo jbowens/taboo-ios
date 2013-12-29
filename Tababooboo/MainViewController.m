@@ -67,6 +67,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self setup];
+    
+    // Hide the navigation bar at the top.
+    self.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
