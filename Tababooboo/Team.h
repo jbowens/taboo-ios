@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+// PLAY WITH JUST ONE TEAM FOR NOW (PRACTICE MODE)
+
 @interface Team : NSObject
+
+@property int points;
+@property NSString *name;
 
 @end

@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Round.h"
 
 @interface Game : NSObject
 
-@property int numTeams; 
+void beginNextRound();
+
+@property int currTeam;
+@property NSMutableArray *teams;
+@property Round *currRound;
 
 @end

@@ -10,5 +10,13 @@
 
 @interface Round : NSObject
 
+struct WordResult
+{
+    __unsafe_unretained NSString *word;
+    bool correct;
+};
+
+@property int currTeam;
+@property NSMutableArray *wordList;
 
 @end
