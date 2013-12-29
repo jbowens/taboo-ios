@@ -7,6 +7,7 @@
 //
 
 #import "SelectTimeViewController.h"
+#import "FontEqualizingView.h"
 #import "Constants.h"
 
 @interface OptionButton : UIButton
@@ -75,7 +76,7 @@
 
 - (void)addOptionButtons
 {
-    UIView *optionsView = [[UIView alloc] init];
+    FontEqualizingView *optionsView = [[FontEqualizingView alloc] init];
     optionsView.translatesAutoresizingMaskIntoConstraints = NO;
     
     // setting up option 1 button
@@ -121,21 +122,21 @@
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:optionsView
                                                             attribute:NSLayoutAttributeHeight
-                                                           multiplier:0.25
+                                                           multiplier:0.20
                                                              constant:0]];
     [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option2Button
                                                             attribute:NSLayoutAttributeHeight
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:optionsView
                                                             attribute:NSLayoutAttributeHeight
-                                                           multiplier:0.25
+                                                           multiplier:0.20
                                                              constant:0]];
     [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.option3Button
                                                             attribute:NSLayoutAttributeHeight
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:optionsView
                                                             attribute:NSLayoutAttributeHeight
-                                                           multiplier:0.25
+                                                           multiplier:0.20
                                                              constant:0]];
     // Make the second object centered in the middle
     
@@ -186,8 +187,15 @@
                                                          multiplier:1.0
                                                            constant:0.0]];
     
-    
-                               
+    // Equalize the fonts of the option title labels
+    [optionsView addEqualFontsView:self.option1Button.titleLabel];
+    [optionsView addEqualFontsView:self.option2Button.titleLabel];
+    [optionsView addEqualFontsView:self.option3Button.titleLabel];
+}
+
+- (void)updateOptionFonts:(NSNotification *)notif
+{
+    NSLog(@"layout changed");
 }
 
 - (void)setTimeLimit:(id)sender
