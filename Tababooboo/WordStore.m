@@ -38,7 +38,6 @@
     
     // Add all the parsed words to the store
     for (NSDictionary *item in wordsFromFile) {
-        NSLog(@"Item: %@", item);
         [self->words addObject: [[Word alloc] initFromDictionary: item]];
     }
     
