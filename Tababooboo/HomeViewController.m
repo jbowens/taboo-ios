@@ -112,18 +112,25 @@
                                                            constant:0]];
 }
 
--(UIButton *) createPlayButton
+// Creates a blank button with alot of the style attributes that
+// we want for the home view.
+- (UIButton *) createButton
 {
-    self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.backgroundColor = PrimaryButtonBackgroundColor;
+    [button setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:200];
+    button.titleLabel.adjustsFontSizeToFitWidth = YES;
+    button.titleLabel.minimumScaleFactor = 0.1;
+    button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    return button;
+}
+
+- (UIButton *) createPlayButton
+{
+    self.playButton = [self createButton];
     [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
-    self.playButton.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.playButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
-    self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.playButton.titleLabel.font = [UIFont systemFontOfSize:200];
-    self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.playButton.titleLabel.minimumScaleFactor = 0.1;
-    self.playButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     [self.playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
     return self.playButton;
 }
@@ -135,16 +142,9 @@
 
 - (UIButton *)createRulesButton
 {
-    self.rulesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.rulesButton = [self createButton];
     [self.rulesButton setTitle:@"How to Play" forState:UIControlStateNormal];
-    self.rulesButton.backgroundColor = PrimaryButtonBackgroundColor;
     [self.rulesButton setTitleColor:SecondaryHeaderColor forState:UIControlStateNormal];
-    self.rulesButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.rulesButton.titleLabel.font = [UIFont systemFontOfSize:200];
-    self.rulesButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.rulesButton.titleLabel.minimumScaleFactor = 0.1;
-    self.rulesButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-    // TODO: add final UI components (styling for buttons, etc)
     [self.rulesButton addTarget:self action:@selector(rulesAction) forControlEvents:UIControlEventTouchUpInside];
     return self.rulesButton;
 }
