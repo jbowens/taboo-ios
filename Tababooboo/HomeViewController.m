@@ -57,26 +57,14 @@
     self.rulesButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add AutoLayout constraints
-    [buttonView addConstraints: [NSLayoutConstraint
-                                 constraintsWithVisualFormat: @"V:|-[play]-80-[rules]-|"
-                                 options: 0
-                                 metrics: nil
-                                 views: viewsDict]];
-    [buttonView addConstraints: [NSLayoutConstraint
-                                 constraintsWithVisualFormat: @"V:[play(==rules)]"
-                                 options: 0
-                                 metrics: nil
-                                 views: viewsDict]];
-    [buttonView addConstraints: [NSLayoutConstraint
-                                 constraintsWithVisualFormat: @"H:|-[play]-|"
-                                 options: 0
-                                 metrics: nil
-                                 views: viewsDict]];
-    [buttonView addConstraints: [NSLayoutConstraint
-                                 constraintsWithVisualFormat: @"H:|-[rules]-|"
-                                 options: 0
-                                 metrics: nil
-                                 views: viewsDict]];
+    NSArray *strConstraints = @[@"V:|-[play]-80-[rules]-|", @"V:[play(==rules)]", @"H:|-[play]-|", @"H:|-[rules]-|"];
+    for (NSString *s in strConstraints) {
+        [buttonView addConstraints: [NSLayoutConstraint
+                                     constraintsWithVisualFormat: s
+                                     options: 0
+                                     metrics: nil
+                                     views: viewsDict]];
+    }
     
     self.playButton.titleLabel.font = self.rulesButton.titleLabel.font;
     
