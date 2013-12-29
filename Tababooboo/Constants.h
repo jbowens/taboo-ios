@@ -13,5 +13,7 @@ extern UIColor *PrimaryBackgroundColor;
 extern UIColor *PrimaryButtonBackgroundColor;
 extern UIColor *PrimarySelectedButtonBackgroundColor;
 
+extern UIColor *SecondaryHeaderColor;
+
 @interface Constants : NSObject
 @end

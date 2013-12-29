@@ -13,6 +13,8 @@ UIColor *PrimaryBackgroundColor;
 UIColor *PrimaryButtonBackgroundColor;
 UIColor *PrimarySelectedButtonBackgroundColor;
 
+UIColor *SecondaryHeaderColor;
+
 
 @implementation Constants
 
@@ -21,6 +23,8 @@ UIColor *PrimarySelectedButtonBackgroundColor;
     PrimaryBackgroundColor = [UIColor whiteColor];
     PrimaryButtonBackgroundColor = [UIColor clearColor];
     PrimarySelectedButtonBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    
+    SecondaryHeaderColor = [UIColor colorWithWhite:0.3 alpha:1.0];
 }
 
 @end

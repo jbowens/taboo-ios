@@ -34,27 +34,98 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self addPlayButton];
-    [self addRulesButton];
+    
+    [self createButtons];
+    
+    //[self addPlayButton];
+    //[self addRulesButton];
 }
 
--(void)addPlayButton
+- (void)createButtons {
+    // Create a container for the buttons.
+    UIView *buttonView = [[UIView alloc] init];
+    buttonView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self createPlayButton];
+    [self createRulesButton];
+    
+    NSDictionary *viewsDict = @{@"play": self.playButton, @"rules": self.rulesButton, @"buttonView": buttonView};
+
+    [buttonView addSubview: self.playButton];
+    [buttonView addSubview: self.rulesButton];
+    self.playButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.rulesButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // Add AutoLayout constraints
+    [buttonView addConstraints: [NSLayoutConstraint
+                                 constraintsWithVisualFormat: @"V:|-[play]-80-[rules]-|"
+                                 options: 0
+                                 metrics: nil
+                                 views: viewsDict]];
+    [buttonView addConstraints: [NSLayoutConstraint
+                                 constraintsWithVisualFormat: @"V:[play(==rules)]"
+                                 options: 0
+                                 metrics: nil
+                                 views: viewsDict]];
+    [buttonView addConstraints: [NSLayoutConstraint
+                                 constraintsWithVisualFormat: @"H:|-[play]-|"
+                                 options: 0
+                                 metrics: nil
+                                 views: viewsDict]];
+    [buttonView addConstraints: [NSLayoutConstraint
+                                 constraintsWithVisualFormat: @"H:|-[rules]-|"
+                                 options: 0
+                                 metrics: nil
+                                 views: viewsDict]];
+    
+    self.playButton.titleLabel.font = self.rulesButton.titleLabel.font;
+    
+    [self.view addSubview:buttonView];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeWidth
+                                                         multiplier:0.5
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonView
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:0.5
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonView
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonView
+                                                          attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0
+                                                           constant:0]];
+}
+
+-(UIButton *) createPlayButton
 {
     self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.playButton.frame = CGRectMake(self.view.frame.size.width/2 - 50.0, self.view.frame.size.height/2, 100.0, 30.0);
+    self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
     self.playButton.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.playButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
-    // TODO: add final UI components (styling for buttons, etc)
-    // example code for how to add background img for normal and highlighted buttons
-    //    UIImage *buttonImageNormal = [UIImage imageNamed:@"blueButton.png"];
-    //    UIImage *strechableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    //    [playButton setBackgroundImage:strechableButtonImageNormal forState:UIControlStateNormal];
-    //    UIImage *buttonImagePressed = [UIImage imageNamed:@"whiteButton.png"];
-    //    UIImage *strechableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    //    [playButton setBackgroundImage:strechableButtonImagePressed forState:UIControlStateHighlighted];
+    [self.playButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.playButton.titleLabel.font = [UIFont systemFontOfSize:200];
+    self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.playButton.titleLabel.minimumScaleFactor = 0.1;
+    self.playButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     [self.playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.playButton];
+    return self.playButton;
 }
 
 - (void)playAction
@@ -62,16 +133,20 @@
     [self.delegate switchToSelectTimeController];
 }
 
-- (void)addRulesButton
+- (UIButton *)createRulesButton
 {
     self.rulesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.rulesButton.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2+50.0, 100.0, 30.0);
     [self.rulesButton setTitle:@"How to Play" forState:UIControlStateNormal];
     self.rulesButton.backgroundColor = PrimaryButtonBackgroundColor;
-    [self.rulesButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
+    [self.rulesButton setTitleColor:SecondaryHeaderColor forState:UIControlStateNormal];
+    self.rulesButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.rulesButton.titleLabel.font = [UIFont systemFontOfSize:200];
+    self.rulesButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.rulesButton.titleLabel.minimumScaleFactor = 0.1;
+    self.rulesButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     // TODO: add final UI components (styling for buttons, etc)
     [self.rulesButton addTarget:self action:@selector(rulesAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.rulesButton];
+    return self.rulesButton;
 }
 
 - (void)rulesAction
