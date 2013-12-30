@@ -29,15 +29,30 @@
 #if DEBUG
 - (void)viewDidAppear:(BOOL)animated
 {
-    if ([self.view hasAmbiguousLayout])
-        NSLog(@"game view has ambiguous layout.");
-    else
-        NSLog(@"game view does NOT have ambiguous layout.");
+    if ([self.uiTimer hasAmbiguousLayout]) {
+        NSLog(@"uiTimer has ambiguous layout.");
+        [self.uiTimer exerciseAmbiguityInLayout];
+    } else
+        NSLog(@"uiTimer does NOT have ambiguous layout.");
     
-    if ([self.prohibitedWordContainer hasAmbiguousLayout])
+    if ([self.wordLabel hasAmbiguousLayout]) {
+        NSLog(@"wordLabel has ambiguous layout.");
+        [self.wordLabel exerciseAmbiguityInLayout];
+    } else
+        NSLog(@"wordLabel does NOT have ambiguous layout.");
+    
+    if ([self.prohibitedWordContainer hasAmbiguousLayout]) {
         NSLog(@"prohibited words has amibiguous layout");
-    else
+        [self.prohibitedWordContainer exerciseAmbiguityInLayout];
+    } else
         NSLog(@"prohibited words does NOT have ambiguous layout");
+    
+    if ([self.buttonCont hasAmbiguousLayout]) {
+        NSLog(@"button cont has amibiguous layout");
+        [self.buttonCont exerciseAmbiguityInLayout];
+    } else
+        NSLog(@"button cont does NOT have ambiguous layout");
+    
 }
 #endif
 
@@ -72,6 +87,7 @@
     self.uiTimer.foregroundColor = TimerProgressColor;
     self.uiTimer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.uiTimer];
+    [self center:self.uiTimer];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.uiTimer
                                                           attribute:NSLayoutAttributeHeight
                                                           relatedBy:NSLayoutRelationEqual
@@ -98,10 +114,11 @@
     self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     [self.view addSubview:self.wordLabel];
     
+    [self center:self.wordLabel];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": self.wordLabel}]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
                                                           attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                          relatedBy:NSLayoutRelationEqual
                                                              toItem:self.uiTimer
                                                           attribute:NSLayoutAttributeBottom
                                                          multiplier:1.0
@@ -119,6 +136,7 @@
     prohibitedContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:prohibitedContainer];
     
+    [self center:prohibitedContainer];
     NSDictionary *vD = @{@"pc": prohibitedContainer};
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
                                                           attribute:NSLayoutAttributeHeight
@@ -135,19 +153,13 @@
                                                          multiplier:1.0
                                                            constant:10]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[pc]-|" options:0 metrics:nil views:vD]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
-                                                          attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationLessThanOrEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0
-                                                           constant:0]];
     
     // Create the prohibited word labels
     NSMutableArray *prohibitedWordLabels = [[NSMutableArray alloc] initWithCapacity:ProhibitedWordCount];
     
     UILabel *firstLabel = nil;
     UILabel *prevLabel = nil;
+    
     for (int i = 0; i < ProhibitedWordCount; ++i) {
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -158,7 +170,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.text = @"Dummy text";
         [prohibitedContainer addSubview:label];
-        [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": label}]];
+        [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
         
         if (!prevLabel) {
             firstLabel = label;
@@ -192,6 +204,7 @@
     
     // For the last label, we want it to be flush against the bottom of the container
     [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
+     
     self.prohibitedWordContainer = prohibitedContainer;
     self.prohibitedWordLabels = prohibitedWordLabels;
 }
@@ -204,6 +217,7 @@
     buttonContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:buttonContainer];
     
+    [self center:buttonContainer];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buttons]|" options:0 metrics:nil views:@{@"buttons": buttonContainer}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[buttons]|" options:0 metrics:nil views:@{@"buttons": buttonContainer}]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonContainer
@@ -215,11 +229,23 @@
                                                            constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.prohibitedWordContainer
                                                           attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationLessThanOrEqual
+                                                          relatedBy:NSLayoutRelationEqual
                                                              toItem:buttonContainer
                                                           attribute:NSLayoutAttributeTop
                                                          multiplier:1.0
                                                            constant: -1 * MinimumButtonContainerTopMargin]];
+    self.buttonCont = buttonContainer;
+}
+
+- (void) center:(UIView *)view
+{
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0]];
 }
 
 - (void)didReceiveMemoryWarning
