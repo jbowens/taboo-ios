@@ -32,6 +32,7 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addTimer];
+    [self setupWordLabels];
     [self addCorrectButton];
     [self addSkipButton];
 }
@@ -68,6 +69,34 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timer]|" options:0 metrics:nil views: @{@"timer": self.uiTimer}]];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval: TimerFrequencyMilliseconds/1000.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)setupWordLabels
+{
+    self.wordLabel = [[UILabel alloc] init];
+    self.wordLabel.text = @"Dummy text";
+    self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.wordLabel.textAlignment = NSTextAlignmentCenter;
+    self.wordLabel.adjustsFontSizeToFitWidth = YES;
+    self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    [self.view addSubview:self.wordLabel];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": self.wordLabel}]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.uiTimer
+                                                          attribute:NSLayoutAttributeTrailing
+                                                         multiplier:0.05
+                                                           constant:10]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:GuessWordHeightAsPct
+                                                           constant:0]];
 }
 
 - (void)addCorrectButton

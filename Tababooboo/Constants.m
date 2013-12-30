@@ -22,6 +22,8 @@ int InfiniteFontSize = 200;
 int TimerFrequencyMilliseconds = 50;
 int TimerHeightPixels = 22;
 
+float GuessWordHeightAsPct = 0.20f;
+
 
 @implementation Constants
 

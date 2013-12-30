@@ -19,10 +19,12 @@
 void addTimer();
 void updateTimer();
 
-@property IBOutlet UIButton *correctButton;
-@property IBOutlet UIButton *skipButton;
-@property IBOutlet NSTimer *timer;
+@property UILabel *wordLabel;
 
+@property UIButton *correctButton;
+@property UIButton *skipButton;
+
+@property NSTimer *timer;
 @property UITimer *uiTimer;
 
 @property int secondsPerRound;

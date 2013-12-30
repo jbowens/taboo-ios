@@ -23,5 +23,7 @@ extern int InfiniteFontSize;
 extern int TimerFrequencyMilliseconds;
 extern int TimerHeightPixels;
 
+extern float GuessWordHeightAsPct;
+
 @interface Constants : NSObject
 @end
