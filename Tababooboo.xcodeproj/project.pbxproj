@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41727661871F148009CA93D /* WordResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C41727651871F148009CA93D /* WordResult.m */; };
 		C470CFCF186D58E200D73F5E /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFCE186D58E200D73F5E /* Round.m */; };
 		C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = C470CFD1186D5B4C00D73F5E /* RandomizedWordSequence.m */; };
 		C471AB68186E58F000E7206E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C471AB67186E58F000E7206E /* HomeViewController.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C41727641871F148009CA93D /* WordResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordResult.h; sourceTree = "<group>"; };
+		C41727651871F148009CA93D /* WordResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordResult.m; sourceTree = "<group>"; };
 		C470CFCD186D58E200D73F5E /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
 		C470CFCE186D58E200D73F5E /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		C470CFD0186D5B4C00D73F5E /* RandomizedWordSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedWordSequence.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				C471AB7C1871448400E7206E /* Game.m */,
 				C471AB751870FCB700E7206E /* RoundResultsViewController.h */,
 				C471AB761870FCB700E7206E /* RoundResultsViewController.m */,
+				C41727641871F148009CA93D /* WordResult.h */,
+				C41727651871F148009CA93D /* WordResult.m */,
 				C471AB771870FCB700E7206E /* Team.h */,
 				C471AB781870FCB700E7206E /* Team.m */,
 				C471AB69186F7C5C00E7206E /* GameViewController.h */,
@@ -322,6 +327,7 @@
 			files = (
 				C471AB7D1871448400E7206E /* Game.m in Sources */,
 				C471AB6E186F8DAF00E7206E /* Constants.m in Sources */,
+				C41727661871F148009CA93D /* WordResult.m in Sources */,
 				C471AB6B186F7C5C00E7206E /* GameViewController.m in Sources */,
 				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
 				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
