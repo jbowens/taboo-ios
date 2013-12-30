@@ -152,9 +152,9 @@
     //self.wordLabel.backgroundColor = [UIColor purpleColor];
     self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordLabel.textAlignment = NSTextAlignmentCenter;
-    //self.wordLabel.adjustsFontSizeToFitWidth = YES;
+    self.wordLabel.adjustsFontSizeToFitWidth = YES;
     //self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
-    self.wordLabel.font = [UIFont systemFontOfSize:32];
+    self.wordLabel.font = [UIFont systemFontOfSize:40];
     self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.wordLabel.numberOfLines = 2;
     [self.view addSubview:self.wordLabel];
