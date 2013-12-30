@@ -90,6 +90,8 @@
 - (void)switchToGameController
 {
     self.gameController.secondsLeft = self.selectTimeController.selectedTimeLimit;
+    [self.game createNewTeam:@"Practice Mode"];
+    [self.game beginNewRound];
     [self pushViewController:self.gameController animated:NO];
 }
 

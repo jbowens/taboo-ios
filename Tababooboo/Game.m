@@ -29,10 +29,6 @@
 
 @end
 
-@interface Game ()
-
-@end
-
 @implementation Game
 
 
@@ -41,7 +37,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        self.currTeam = 0;
+        self.currTeam = -1;
         self.teams = [[NSMutableArray alloc] initWithCapacity:1];
     }
     return self;

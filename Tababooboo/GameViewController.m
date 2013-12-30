@@ -30,15 +30,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
-    self.timerLabel = [[UILabel alloc] init];
-    self.timerLabel.frame = CGRectMake(self.view.frame.size.width/2 - 25, 75, 50, 20);
-    [self.timerLabel setBackgroundColor:[UIColor clearColor]];
-    [self.timerLabel setTextColor:PrimaryHeaderColor];
-    int initMinutes = (self.secondsLeft%3600)/60;
-    int initSeconds = (self.secondsLeft%3600)%60;
-    self.timerLabel.text =[NSString stringWithFormat:@"%02d:%02d", initMinutes, initSeconds];
-    [self.view addSubview:self.timerLabel];
     [self addTimer];
+    [self addCorrectButton];
+    [self addSkipButton];
 }
 
 - (void)updateTimer:(NSTimer *)timer
@@ -58,7 +52,25 @@
 
 - (void)addTimer
 {
+    self.timerLabel = [[UILabel alloc] init];
+    self.timerLabel.frame = CGRectMake(self.view.frame.size.width/2 - 25, 75, 50, 20);
+    [self.timerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.timerLabel setTextColor:PrimaryHeaderColor];
+    int initMinutes = (self.secondsLeft%3600)/60;
+    int initSeconds = (self.secondsLeft%3600)%60;
+    self.timerLabel.text =[NSString stringWithFormat:@"%02d:%02d", initMinutes, initSeconds];
+    [self.view addSubview:self.timerLabel];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)addCorrectButton
+{
+    // TODO: Fill
+}
+
+- (void)addSkipButton
+{
+    // TODO: Fill
 }
 
 - (void)didReceiveMemoryWarning
