@@ -10,7 +10,28 @@
 #import "Constants.h"
 #import "Game.h"
 
+@interface wordResultButton : UIButton
+@property NSString *word;
+@property bool correct;
+@end
+
+@implementation wordResultButton
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+@end
+
 @interface GameViewController ()
+
+@property wordResultButton     *correctButton;
+@property wordResultButton     *skipButton;
 
 @end
 
@@ -59,6 +80,7 @@
     }
     else {
         NSLog(@"Timer reached 0 seconds.");
+        [self.delegate switchToRoundResultsController];
         [timer invalidate];
         timer = nil;
     }
@@ -220,6 +242,44 @@
                                                           attribute:NSLayoutAttributeTop
                                                          multiplier:1.0
                                                            constant: -1 * MinimumButtonContainerTopMargin]];
+    
+    // TODO : FIX SO THAT THESE BUTTONS ARE CONTAINER-SIZE SAFE
+    
+    self.correctButton = [wordResultButton buttonWithType:UIButtonTypeRoundedRect];
+    self.correctButton.frame = CGRectMake(50, self.view.frame.size.height-50.0, 100.0, 30.0);
+    [self.correctButton setTitle:@"Correct" forState:UIControlStateNormal];
+    self.correctButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.correctButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    // TODO: customize UI components (styling for buttons, etc)
+    self.correctButton.word = self.wordLabel.text;
+    self.correctButton.correct = true;
+    [self.correctButton addTarget:self action:@selector(addWordResultToRound:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.correctButton];
+    
+    self.skipButton = [wordResultButton buttonWithType:UIButtonTypeRoundedRect];
+    self.skipButton.frame = CGRectMake(self.view.frame.size.width-100, self.view.frame.size.height-50.0, 100.0, 30.0);
+    [self.skipButton setTitle:@"Skip" forState:UIControlStateNormal];
+    self.skipButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.skipButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    // TODO: customize UI components (styling for buttons, etc)
+    self.skipButton.word = self.wordLabel.text;
+    self.skipButton.correct = false;
+    [self.skipButton addTarget:self action:@selector(addWordResultToRound:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.skipButton];
+    
+}
+
+- (void) viewNextWord
+{
+    // TODO : displays next word
+}
+
+- (void)addWordResultToRound:(id)sender
+{
+    wordResultButton *buttonClicked = (wordResultButton *)sender;
+    Game* game = [self.delegate getGame];
+    [game updateRound:buttonClicked.word :buttonClicked.correct];
+    [self viewNextWord];
 }
 
 - (void)didReceiveMemoryWarning

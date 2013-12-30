@@ -16,7 +16,9 @@ struct WordResult
     bool correct;
 };
 
-@property int currTeam;
+- (NSString *) getWordResultWord:(int)index;
+- (bool) getWordResultCorrect:(int)index;
+
 @property NSMutableArray *wordList;
 
 @end

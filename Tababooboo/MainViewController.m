@@ -63,7 +63,7 @@
     self.selectTimeController.delegate = self;
     self.gameController = [[GameViewController alloc] init];
     self.gameController.delegate = self;
-    //self.game = [[Game alloc] init];
+    self.game = [[Game alloc] init];
 }
 
 - (void)viewDidLoad
@@ -90,14 +90,36 @@
 - (void)switchToGameController
 {
     self.gameController.secondsPerRound = self.selectTimeController.selectedTimeLimit;
-    //[self.game createNewTeam:@"Practice Mode"];
-    //[self.game beginNewRound];
+    [self.game createNewTeam:@"Practice Mode"];
+    [self.game beginNewRound];
     [self pushViewController:self.gameController animated:NO];
+}
+
+- (void)switchToRoundResultsController
+{
+    // prints out the correct/skip counts for now just to test
+    int numWords = [self.game.currRound.wordList count];
+    int numCorrect = 0;
+    int numSkip = 0;
+    for (int i = 0; i < numWords; ++i) {
+        if ([self.game.currRound getWordResultCorrect:i]) {
+            numCorrect++;
+        } else {
+            numSkip++;
+        }
+    }
+    NSLog(@"Num correct: %d, num skipped: %d", numCorrect, numSkip);
+    // TODO : switch to RoundResultsViewController
 }
 
 - (void)goBack
 {
     [self popToRootViewControllerAnimated:NO];
+}
+
+- (Game *)getGame
+{
+    return self.game;
 }
 
 - (void)didReceiveMemoryWarning

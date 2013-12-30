@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UITimer.h"
+#import "Game.h"
 
 @protocol GameViewControllerDelegate <NSObject>
+
+- (Game *)getGame;
+- (void)switchToRoundResultsController;
 
 @end
 
@@ -20,9 +24,6 @@ void addTimer();
 void updateTimer();
 
 @property UILabel      *wordLabel;
-
-@property UIButton     *correctButton;
-@property UIButton     *skipButton;
 
 @property UIView       *prohibitedWordContainer;
 @property NSArray      *prohibitedWordLabels;
