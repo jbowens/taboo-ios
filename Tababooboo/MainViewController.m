@@ -24,7 +24,7 @@
 @property RandomizedWordSequence    *currentSequence;
 
 /// Game instance. Should be used to keep game state information.
-@property Game *game;
+@property Game                      *game;
 
 ///////////////////////////////////////////////////////
 /// Other view controllers

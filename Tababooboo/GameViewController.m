@@ -240,7 +240,6 @@
 {
     // Setup the UI view that contains the buttons.
     UIView *buttonContainer = [[UIView alloc] init];
-    buttonContainer.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
     buttonContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:buttonContainer];
     
@@ -263,31 +262,41 @@
                                                            constant: -1 * MinimumButtonContainerTopMargin]];
     
     self.buttonCont = buttonContainer;
-
-    // TODO : FIX SO THAT THESE BUTTONS ARE CONTAINER-SIZE SAFE
     
     self.correctButton = [wordResultButton buttonWithType:UIButtonTypeRoundedRect];
-    self.correctButton.frame = CGRectMake(50, self.view.frame.size.height-50.0, 100.0, 30.0);
+    self.correctButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.correctButton setTitle:@"Correct" forState:UIControlStateNormal];
+    self.correctButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.correctButton.backgroundColor = PrimaryButtonBackgroundColor;
     [self.correctButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
     // TODO: customize UI components (styling for buttons, etc)
     self.correctButton.word = self.wordLabel.text;
     self.correctButton.correct = true;
     [self.correctButton addTarget:self action:@selector(addWordResultToRound:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.correctButton];
+    [buttonContainer addSubview:self.correctButton];
     
     self.skipButton = [wordResultButton buttonWithType:UIButtonTypeRoundedRect];
-    self.skipButton.frame = CGRectMake(self.view.frame.size.width-100, self.view.frame.size.height-50.0, 100.0, 30.0);
+    self.skipButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.skipButton setTitle:@"Skip" forState:UIControlStateNormal];
+    self.skipButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.skipButton.backgroundColor = PrimaryButtonBackgroundColor;
     [self.skipButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
     // TODO: customize UI components (styling for buttons, etc)
     self.skipButton.word = self.wordLabel.text;
     self.skipButton.correct = false;
     [self.skipButton addTarget:self action:@selector(addWordResultToRound:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.skipButton];
+    [buttonContainer addSubview:self.skipButton];
     
+    [buttonContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[b]|" options:0 metrics:nil views:@{@"b": self.correctButton}]];
+    [buttonContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[c]-[s]|" options:0 metrics:nil views:@{@"c": self.correctButton, @"s":self.skipButton}]];
+    [buttonContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[b]|" options:0 metrics:nil views:@{@"b": self.skipButton}]];
+    [buttonContainer addConstraint:[NSLayoutConstraint constraintWithItem:self.correctButton
+                                                                attribute:NSLayoutAttributeWidth
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:self.skipButton
+                                                                attribute:NSLayoutAttributeWidth
+                                                               multiplier:1.0
+                                                                 constant:0]];
 }
 
 - (void) viewNextWord
