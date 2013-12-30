@@ -45,7 +45,21 @@ NSInteger shuffleCmp(id a, id b, void* c)
     } else {
         return nil;
     }
+}
 
+- (id) initFromDictionary:(NSDictionary *)dictionary wordStore:(WordStore *)wordStore
+{
+    if (self = [super init]) {
+        if (!wordStore || !dictionary || ![dictionary count]) {
+            return nil;
+        }
+        self->backingWordStore = wordStore;
+        self->randomizedIndices = [dictionary objectForKey:@"indices"];
+        self->nextIndex = [[dictionary objectForKey:@"nextIndex"] intValue];
+        return self;
+    } else {
+        return nil;
+    }
 }
 
 - (bool) hasNext {
@@ -66,5 +80,14 @@ NSInteger shuffleCmp(id a, id b, void* c)
     self->nextIndex = 0;
 }
 
+// Utility method that saves the state of the sequence to a dictionary. This
+// is used as a utility method when converting the sequence to a plist for
+// permanent storage.
+- (NSDictionary *) toDict {
+    return @{
+             @"nextIndex": [NSNumber numberWithInt:self->nextIndex],
+               @"indices": self->randomizedIndices
+            };
+}
 
 @end

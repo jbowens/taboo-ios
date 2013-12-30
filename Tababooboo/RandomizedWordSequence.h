@@ -13,11 +13,12 @@
 @interface RandomizedWordSequence : NSObject
 
 - (id) initWithWordStore:(WordStore *)store;
+- (id) initFromDictionary:(NSDictionary *)dictionary wordStore:(WordStore *)wordStore;
 
 - (bool) hasNext;
-
 - (Word *) next;
-
 - (void) restart;
+
+- (NSDictionary *)toDict;
 
 @end

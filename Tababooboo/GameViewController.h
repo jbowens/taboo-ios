@@ -22,6 +22,8 @@
 
 void addTimer();
 void updateTimer();
+- (void) preserveData;
+
 
 @property UILabel      *wordLabel;
 

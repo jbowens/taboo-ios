@@ -8,23 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-extern UIColor *PrimaryHeaderColor;
-extern UIColor *PrimaryBackgroundColor;
-extern UIColor *PrimaryButtonBackgroundColor;
-extern UIColor *PrimarySelectedButtonBackgroundColor;
+extern UIColor      *PrimaryHeaderColor;
+extern UIColor      *PrimaryBackgroundColor;
+extern UIColor      *PrimaryButtonBackgroundColor;
+extern UIColor      *PrimarySelectedButtonBackgroundColor;
 
-extern UIColor *SecondaryHeaderColor;
+extern UIColor      *SecondaryHeaderColor;
 
-extern UIColor *TimerBackgroundColor;
-extern UIColor *TimerProgressColor;
+extern UIColor      *TimerBackgroundColor;
+extern UIColor      *TimerProgressColor;
 
-extern UIFont  *ProhibitedWordsFont;
-extern UIColor *ProhibitedWordsColor;
+extern UIFont       *ProhibitedWordsFont;
+extern UIColor      *ProhibitedWordsColor;
 
-extern UIFont  *GuessWordFont;
+extern UIFont       *GuessWordFont;
 
-extern UIColor *CorrectWordColor;
-extern UIColor *SkippedWordColor;
+extern UIColor      *CorrectWordColor;
+extern UIColor      *SkippedWordColor;
+
+extern NSString     *WordSequenceFilename;
 
 extern int      InfiniteFontSize;
 

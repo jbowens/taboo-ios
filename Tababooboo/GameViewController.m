@@ -97,7 +97,23 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
     [self.wordStore loadFromFile:filePath];
     
-    self.currentSequence = [[RandomizedWordSequence alloc] initWithWordStore:self.wordStore];
+    // Load the word sequence, if one exists.
+    NSString *directory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *path = [directory stringByAppendingPathComponent:WordSequenceFilename];
+    NSDictionary *seqDictionary = nil;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        seqDictionary = [[NSDictionary alloc] initWithContentsOfFile:path];
+    }
+    if (seqDictionary) {
+        // There's previous sequence data saved on the filesystem. Use that to initialize the word sequence.
+        NSLog(@"Loading word sequence from %@.plist\n", WordSequenceFilename);
+        self.currentSequence = [[RandomizedWordSequence alloc] initFromDictionary:seqDictionary wordStore:self.wordStore];
+    } else {
+        // We have no previous sequence data, so start a new sequence.
+        NSLog(@"No serialized word sequence available. Starting new word sequence.\n");
+        self.currentSequence = [[RandomizedWordSequence alloc] initWithWordStore:self.wordStore];
+    }
     
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addTimer];
@@ -367,6 +383,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) preserveData
+{
+    NSString *directory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *path = [directory stringByAppendingPathComponent:WordSequenceFilename];
+    NSDictionary *toSave = [self.currentSequence toDict];
+    NSError *error;
+    NSData *data = [NSPropertyListSerialization dataWithPropertyList:toSave
+                                                              format:NSPropertyListXMLFormat_v1_0
+                                                             options:0
+                                                               error:&error];
+    // Save the data to the file
+    NSError *err;
+    if (![data writeToFile:path options:NSAtomicWrite error:&err]) {
+        NSLog(@"Write to %@ failed with error %@\n", path, err);
+    } else {
+        NSLog(@"Saved sequence data to plist.");
+    }
 }
 
 @end

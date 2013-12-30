@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WordStore.h"
+#import "GameViewController.h"
 
 @interface MainViewController : UINavigationController
-
+@property (readonly)    GameViewController      *gameController;
 @end

@@ -26,6 +26,8 @@ UIFont  *GuessWordFont;
 UIColor *CorrectWordColor;
 UIColor *SkippedWordColor;
 
+NSString    *WordSequenceFilename = @"WordSequenceState.json";
+
 int      InfiniteFontSize = 200;
 int      TimerFrequencyMilliseconds = 50;
 int      TimerHeightPixels = 4;

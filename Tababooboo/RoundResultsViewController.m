@@ -110,6 +110,7 @@
         label.textColor = SkippedWordColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
+        label.numberOfLines = 2;
         WordResult* wr = [self.currRound.wordList objectAtIndex:i];
         label.text = wr.word.word;
         if (wr.correct) {
