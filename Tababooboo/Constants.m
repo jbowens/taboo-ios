@@ -21,6 +21,8 @@ UIColor *TimerProgressColor;
 UIFont  *ProhibitedWordsFont;
 UIColor *ProhibitedWordsColor;
 
+UIFont  *GuessWordFont;
+
 int      InfiniteFontSize = 200;
 int      TimerFrequencyMilliseconds = 50;
 int      TimerHeightPixels = 4;
@@ -48,6 +50,8 @@ int      ProhibitedWordCount = 5;
     
     ProhibitedWordsFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:28];
     ProhibitedWordsColor = [UIColor colorWithWhite:0.2 alpha:1.0];
+    
+    GuessWordFont = [UIFont systemFontOfSize:40];
 }
 
 @end

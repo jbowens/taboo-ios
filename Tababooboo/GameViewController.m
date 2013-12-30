@@ -154,7 +154,7 @@
     self.wordLabel.textAlignment = NSTextAlignmentCenter;
     self.wordLabel.adjustsFontSizeToFitWidth = YES;
     //self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
-    self.wordLabel.font = [UIFont systemFontOfSize:40];
+    self.wordLabel.font = GuessWordFont;
     self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.wordLabel.numberOfLines = 2;
     [self.view addSubview:self.wordLabel];
