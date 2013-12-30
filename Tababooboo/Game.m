@@ -62,7 +62,6 @@
     wr.correct = correct;
     wr.word = word;
     [self.currRound.wordList addObject:wr];
-    int size = [self.currRound.wordList count];
 }
 
 - (void)updateTeam:(int)ptsToAdd
