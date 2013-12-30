@@ -118,6 +118,13 @@
         }
         [self.wordsView addSubview:label];
         [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
+        [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                   attribute:NSLayoutAttributeWidth
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.wordsView
+                                                                   attribute:NSLayoutAttributeWidth
+                                                                  multiplier:1.0
+                                                                    constant:0]];
         [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.wordsView attribute:NSLayoutAttributeHeight multiplier:1.0f/wordListCount constant:-1]];
         
         if (!prevLabel) {
