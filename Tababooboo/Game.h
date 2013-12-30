@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Round.h"
+#import "Word.h"
 
 @interface Game : NSObject
 
 - (void) createNewTeam:(NSString *)name;
 - (void) beginNewRound;
-- (void) updateRound:(NSString *)word :(bool)correct;
+- (void) updateRound:(Word *)word :(bool)correct;
 
 @property int currTeam;
 @property NSMutableArray *teams;

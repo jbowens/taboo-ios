@@ -21,6 +21,8 @@ extern UIColor *TimerProgressColor;
 extern UIFont  *ProhibitedWordsFont;
 extern UIColor *ProhibitedWordsColor;
 
+extern UIFont  *GuessWordFont;
+
 extern int      InfiniteFontSize;
 
 extern int      TimerFrequencyMilliseconds;
