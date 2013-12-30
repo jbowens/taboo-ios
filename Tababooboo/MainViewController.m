@@ -12,6 +12,7 @@
 #import "GameViewController.h"
 #import "RandomizedWordSequence.h"
 #import "Game.h"
+#import "Constants.h"
 
 @interface MainViewController ()
 
@@ -71,7 +72,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self setup];
-    
+    self.view.backgroundColor = PrimaryBackgroundColor;
     // Hide the navigation bar at the top.
     self.navigationBarHidden = YES;
 }
@@ -84,7 +85,24 @@
 
 - (void)switchToSelectTimeController
 {
+    
+    CATransition *animation = [CATransition animation];
     [self pushViewController:self.selectTimeController animated:NO];
+    [animation setDuration:0.45];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    [[self.selectTimeController.view layer] addAnimation:animation forKey:@"SwitchToView1"];
+
+    // Below code is for a fade transition... thought it was meh
+    // but keeping the code just in case
+    
+/**    [UIView animateWithDuration:0.75
+                     animations:^{
+                         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                         [self pushViewController:self.selectTimeController animated:NO];
+                         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+                     }]; */
 }
 
 - (void)switchToGameController
