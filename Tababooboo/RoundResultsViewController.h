@@ -13,7 +13,7 @@
 
 @end
 
-@interface RoundResultsViewController : UIViewController
+@interface RoundResultsViewController : UIViewController <UIScrollViewDelegate>
 
 @property NSString* teamName;
 @property Round* currRound;

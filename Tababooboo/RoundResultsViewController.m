@@ -65,6 +65,7 @@
                                                         multiplier:TeamNameHeightAsPct
                                                            constant:0]];
     self.wordsView = [[UIScrollView alloc] init];
+    self.wordsView.delegate = self;
     [self.wordsView setBackgroundColor:PrimarySelectedButtonBackgroundColor];
     self.wordsView.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordsView.scrollEnabled = YES;
@@ -145,6 +146,15 @@
     // For the last label, we want it to be flush against the bottom of the container
     [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Prevent horizontal scrolling
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
 }
 
 - (void) center:(UIView *)view
