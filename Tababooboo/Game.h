@@ -13,6 +13,7 @@
 
 - (void) createNewTeam:(NSString *)name;
 - (void) beginNewRound;
+- (void) updateRound:(NSString *)word :(bool)correct;
 
 @property int currTeam;
 @property NSMutableArray *teams;

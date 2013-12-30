@@ -95,9 +95,31 @@
     [self pushViewController:self.gameController animated:NO];
 }
 
+- (void)switchToRoundResultsController
+{
+    // prints out the correct/skip counts for now just to test
+    int numWords = [self.game.currRound.wordList count];
+    int numCorrect = 0;
+    int numSkip = 0;
+    for (int i = 0; i < numWords; ++i) {
+        if ([self.game.currRound getWordResultCorrect:i]) {
+            numCorrect++;
+        } else {
+            numSkip++;
+        }
+    }
+    NSLog(@"Num correct: %d, num skipped: %d", numCorrect, numSkip);
+    // TODO : switch to RoundResultsViewController
+}
+
 - (void)goBack
 {
     [self popToRootViewControllerAnimated:NO];
+}
+
+- (Game *)getGame
+{
+    return self.game;
 }
 
 - (void)didReceiveMemoryWarning
