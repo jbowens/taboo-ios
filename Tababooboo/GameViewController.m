@@ -159,7 +159,6 @@
     [self.view addSubview:prohibitedContainer];
     
     [self center:prohibitedContainer];
-    NSDictionary *vD = @{@"pc": prohibitedContainer};
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
                                                           attribute:NSLayoutAttributeHeight
                                                           relatedBy:NSLayoutRelationGreaterThanOrEqual
@@ -174,7 +173,13 @@
                                                           attribute:NSLayoutAttributeBottom
                                                          multiplier:1.0
                                                            constant:10]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[pc]-|" options:0 metrics:nil views:vD]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.wordLabel
+                                                          attribute:NSLayoutAttributeWidth
+                                                         multiplier:0.70
+                                                           constant:0]];
     
     // Create the prohibited word labels
     NSMutableArray *prohibitedWordLabels = [[NSMutableArray alloc] initWithCapacity:ProhibitedWordCount];
