@@ -156,7 +156,7 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.wordLabel
                                                           attribute:NSLayoutAttributeWidth
-                                                         multiplier:0.75
+                                                         multiplier:0.70
                                                            constant:0]];
     
     // Create the prohibited word labels
