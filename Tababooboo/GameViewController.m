@@ -85,10 +85,10 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": self.wordLabel}]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
                                                           attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
+                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
                                                              toItem:self.uiTimer
                                                           attribute:NSLayoutAttributeBottom
-                                                         multiplier:0
+                                                         multiplier:1.0
                                                            constant:10]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
                                                           attribute:NSLayoutAttributeHeight
