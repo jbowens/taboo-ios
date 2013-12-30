@@ -26,6 +26,21 @@
     return self;
 }
 
+#if DEBUG
+- (void)viewDidAppear:(BOOL)animated
+{
+    if ([self.view hasAmbiguousLayout])
+        NSLog(@"game view has ambiguous layout.");
+    else
+        NSLog(@"game view does NOT have ambiguous layout.");
+    
+    if ([self.prohibitedWordContainer hasAmbiguousLayout])
+        NSLog(@"prohibited words has amibiguous layout");
+    else
+        NSLog(@"prohibited words does NOT have ambiguous layout");
+}
+#endif
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,7 +90,7 @@
     // Construct the primary word label for the guess word.
     self.wordLabel = [[UILabel alloc] init];
     self.wordLabel.text = @"Dummy text";
-    self.wordLabel.backgroundColor = [UIColor purpleColor];
+    //self.wordLabel.backgroundColor = [UIColor purpleColor];
     self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordLabel.textAlignment = NSTextAlignmentCenter;
     self.wordLabel.adjustsFontSizeToFitWidth = YES;
@@ -100,7 +115,7 @@
                                                            constant:0]];
     // Setup the container for the prohibited words. All labels will be relative to this.
     UIView *prohibitedContainer = [[UIView alloc] init];
-    prohibitedContainer.backgroundColor = [UIColor orangeColor];
+    //prohibitedContainer.backgroundColor = [UIColor orangeColor];
     prohibitedContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:prohibitedContainer];
     

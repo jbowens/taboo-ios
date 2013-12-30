@@ -23,7 +23,7 @@ UIColor *ProhibitedWordsColor;
 
 int      InfiniteFontSize = 200;
 int      TimerFrequencyMilliseconds = 50;
-int      TimerHeightPixels = 22;
+int      TimerHeightPixels = 4;
 
 float    GuessWordHeightAsPct = 0.20f;
 float    ProhibitedWordsHeightAsPct = 0.5;
