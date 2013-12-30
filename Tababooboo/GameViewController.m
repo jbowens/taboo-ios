@@ -33,8 +33,7 @@
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addTimer];
     [self setupWordLabels];
-    [self addCorrectButton];
-    [self addSkipButton];
+    [self setupButtons];
 }
 
 - (void)updateTimer:(NSTimer *)timer
@@ -73,6 +72,7 @@
 
 - (void)setupWordLabels
 {
+    // Construct the primary word label for the guess word.
     self.wordLabel = [[UILabel alloc] init];
     self.wordLabel.text = @"Dummy text";
     self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -97,16 +97,111 @@
                                                           attribute:NSLayoutAttributeHeight
                                                          multiplier:GuessWordHeightAsPct
                                                            constant:0]];
+    // Setup the container for the prohibited words. All labels will be relative to this.
+    UIView *prohibitedContainer = [[UIView alloc] init];
+    prohibitedContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:prohibitedContainer];
+    
+    NSDictionary *vD = @{@"pc": prohibitedContainer};
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:ProhibitedWordsHeightAsPct
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.wordLabel
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:10]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[pc]-|" options:0 metrics:nil views:vD]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationLessThanOrEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:0]];
+    
+    // Create the prohibited word labels
+    NSMutableArray *prohibitedWordLabels = [[NSMutableArray alloc] initWithCapacity:ProhibitedWordCount];
+    
+    UILabel *firstLabel = nil;
+    UILabel *prevLabel = nil;
+    for (int i = 0; i < ProhibitedWordCount; ++i) {
+        UILabel *label = [[UILabel alloc] init];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont systemFontOfSize:InfiniteFontSize];
+        label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = @"Dummy text";
+        [prohibitedContainer addSubview:label];
+        [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": label}]];
+        
+        if (!prevLabel) {
+            firstLabel = label;
+            // This is the first label. We need to make a constraint against
+            // the top of its container.
+            [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[w]" options:0 metrics:nil views:@{@"w": label}]];
+        } else {
+            // There was a label before us. We need to add constraints to
+            // position this label in relation to that label.
+            [prohibitedContainer addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                            attribute:NSLayoutAttributeTop
+                                                                            relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                               toItem:prevLabel
+                                                                            attribute:NSLayoutAttributeBottom
+                                                                           multiplier:1.0
+                                                                             constant:0]];
+            // This label must also be the same height as the previous label.
+            [prohibitedContainer addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:firstLabel
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                           multiplier:1.0
+                                                                             constant:0]];
+            // We'd also like the vertical trailing space to be equal to the height.
+        }
+        
+        prohibitedWordLabels[i] = label;
+        prevLabel = label;
+    }
+    
+    // For the last label, we want it to be flush against the bottom of the container
+    [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
+    self.prohibitedWordContainer = prohibitedContainer;
+    self.prohibitedWordLabels = prohibitedWordLabels;
 }
 
-- (void)addCorrectButton
+- (void)setupButtons
 {
-    // TODO: Fill
-}
-
-- (void)addSkipButton
-{
-    // TODO: Fill
+    // Setup the UI view that contains the buttons.
+    UIView *buttonContainer = [[UIView alloc] init];
+    buttonContainer.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+    buttonContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:buttonContainer];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buttons]|" options:0 metrics:nil views:@{@"buttons": buttonContainer}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[buttons]|" options:0 metrics:nil views:@{@"buttons": buttonContainer}]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonContainer
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:ButtonsHeightAsPct
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.prohibitedWordContainer
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationLessThanOrEqual
+                                                             toItem:buttonContainer
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1.0
+                                                           constant: -1 * MinimumButtonContainerTopMargin]];
 }
 
 - (void)didReceiveMemoryWarning

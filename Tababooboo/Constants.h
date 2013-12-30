@@ -24,6 +24,12 @@ extern int TimerFrequencyMilliseconds;
 extern int TimerHeightPixels;
 
 extern float GuessWordHeightAsPct;
+extern float ProhibitedWordsHeightAsPct;
+extern int MinimumSpacingBetweenProhibitedWordsPixels;
+extern float ButtonsHeightAsPct;
+extern int MinimumButtonContainerTopMargin;
+
+extern int ProhibitedWordCount;
 
 @interface Constants : NSObject
 @end

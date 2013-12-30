@@ -23,7 +23,12 @@ int TimerFrequencyMilliseconds = 50;
 int TimerHeightPixels = 22;
 
 float GuessWordHeightAsPct = 0.20f;
+float ProhibitedWordsHeightAsPct = 0.6;
+int MinimumSpacingBetweenProhibitedWordsPixels = 10;
+float ButtonsHeightAsPct = 0.10f;
+int MinimumButtonContainerTopMargin = 20;
 
+int ProhibitedWordCount = 5;
 
 @implementation Constants
 
