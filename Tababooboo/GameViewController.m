@@ -137,7 +137,6 @@
     [self.view addSubview:prohibitedContainer];
     
     [self center:prohibitedContainer];
-//    NSDictionary *vD = @{@"pc": prohibitedContainer};
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:prohibitedContainer
                                                           attribute:NSLayoutAttributeHeight
                                                           relatedBy:NSLayoutRelationGreaterThanOrEqual
