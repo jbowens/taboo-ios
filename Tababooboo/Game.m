@@ -12,8 +12,8 @@
 
 
 @interface WordResult : NSObject
-    @property NSString* word;
-    @property bool correct;
+    @property Word      *word;
+    @property bool      correct;
 @end
 
 @implementation WordResult
@@ -56,7 +56,7 @@
     self.currRound = [[Round alloc] init];
 }
 
-- (void)updateRound:(NSString *)word :(bool)correct
+- (void)updateRound:(Word *)word :(bool)correct
 {
     WordResult* wr = [[WordResult alloc] init];
     wr.correct = correct;

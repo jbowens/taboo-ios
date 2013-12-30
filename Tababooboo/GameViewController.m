@@ -40,8 +40,11 @@
 /// next words to display.
 @property RandomizedWordSequence    *currentSequence;
 
-@property wordResultButton     *correctButton;
-@property wordResultButton     *skipButton;
+/// The word currently being displayed
+@property Word                      *currentWord;
+
+@property wordResultButton          *correctButton;
+@property wordResultButton          *skipButton;
 
 @end
 
@@ -329,7 +332,10 @@
         [self.currentSequence restart];
     }
     
-    return [self.currentSequence next];
+    Word *next = [self.currentSequence next];
+    self.currentWord = next;
+    
+    return next;
 }
 
 - (void) viewNextWord
