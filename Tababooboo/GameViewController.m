@@ -333,7 +333,12 @@
 {
     Word *nextWord = [self nextWord];
     self.wordLabel.text = nextWord.word;
-    // TODO: Display prohibited words
+    
+    NSArray *prohibitedWords = [nextWord.prohibitedWords allObjects];
+    for (int i = 0; i < ProhibitedWordCount; ++i) {
+        UILabel *label = self.prohibitedWordLabels[i];
+        label.text = prohibitedWords[i];
+    }
 }
 
 - (void)addWordResultToRound:(id)sender
