@@ -87,8 +87,8 @@
                                                           attribute:NSLayoutAttributeTop
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.uiTimer
-                                                          attribute:NSLayoutAttributeTrailing
-                                                         multiplier:0.05
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:0
                                                            constant:10]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordLabel
                                                           attribute:NSLayoutAttributeHeight
