@@ -63,29 +63,23 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 #if DEBUG
+    // Check for ambiguous layouts.
     if ([self.uiTimer hasAmbiguousLayout]) {
-        NSLog(@"uiTimer has ambiguous layout.");
+        NSLog(@"WARNING: uiTimer has ambiguous layout.");
         [self.uiTimer exerciseAmbiguityInLayout];
-    } else
-        NSLog(@"uiTimer does NOT have ambiguous layout.");
-    
+    }
     if ([self.wordLabel hasAmbiguousLayout]) {
-        NSLog(@"wordLabel has ambiguous layout.");
+        NSLog(@"WARNING: wordLabel has ambiguous layout.");
         [self.wordLabel exerciseAmbiguityInLayout];
-    } else
-        NSLog(@"wordLabel does NOT have ambiguous layout.");
-    
+    }
     if ([self.prohibitedWordContainer hasAmbiguousLayout]) {
-        NSLog(@"prohibited words has amibiguous layout");
+        NSLog(@"WARNING: prohibited words has amibiguous layout");
         [self.prohibitedWordContainer exerciseAmbiguityInLayout];
-    } else
-        NSLog(@"prohibited words does NOT have ambiguous layout");
-    
+    }
     if ([self.buttonCont hasAmbiguousLayout]) {
-        NSLog(@"button cont has amibiguous layout");
+        NSLog(@"WARNING: button cont has amibiguous layout");
         [self.buttonCont exerciseAmbiguityInLayout];
-    } else
-        NSLog(@"button cont does NOT have ambiguous layout");
+    }
 #endif
 
     [self viewNextWord];
@@ -354,7 +348,7 @@
 {
     wordResultButton *buttonClicked = (wordResultButton *)sender;
     Game* game = [self.delegate getGame];
-    [game updateRound:buttonClicked.word :buttonClicked.correct];
+    [game updateRound:self.currentWord :buttonClicked.correct];
     [self viewNextWord];
 }
 
