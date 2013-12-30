@@ -11,7 +11,7 @@
 
 @interface Game : NSObject
 
-void beginNextRound();
+void beginNewRound();
 
 @property int currTeam;
 @property NSMutableArray *teams;

@@ -11,6 +11,7 @@
 #import "SelectTimeViewController.h"
 #import "GameViewController.h"
 #import "RandomizedWordSequence.h"
+#import "Game.h"
 
 @interface MainViewController ()
 
@@ -21,6 +22,8 @@
 /// next words to display.
 @property RandomizedWordSequence    *currentSequence;
 
+/// Game instance. Should be used to keep game state information.
+@property Game *game;
 
 ///////////////////////////////////////////////////////
 /// Other view controllers
@@ -60,6 +63,7 @@
     self.selectTimeController.delegate = self;
     self.gameController = [[GameViewController alloc] init];
     self.gameController.delegate = self;
+    self.game = [[Game alloc] init];
 }
 
 - (void)viewDidLoad
