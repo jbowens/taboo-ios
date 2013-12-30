@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITimer.h"
 
 @protocol GameViewControllerDelegate <NSObject>
 
@@ -21,8 +22,11 @@ void updateTimer();
 @property IBOutlet UIButton *correctButton;
 @property IBOutlet UIButton *skipButton;
 @property IBOutlet NSTimer *timer;
-@property IBOutlet UILabel *timerLabel;
-@property int secondsLeft;
+
+@property UITimer *uiTimer;
+
+@property int secondsPerRound;
+@property int millisecondsElapsed;
 @property (weak, nonatomic) id<GameViewControllerDelegate> delegate;
 
 @end

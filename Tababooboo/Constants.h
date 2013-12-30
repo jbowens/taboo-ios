@@ -15,7 +15,13 @@ extern UIColor *PrimarySelectedButtonBackgroundColor;
 
 extern UIColor *SecondaryHeaderColor;
 
+extern UIColor *TimerBackgroundColor;
+extern UIColor *TimerProgressColor;
+
 extern int InfiniteFontSize;
+
+extern int TimerFrequencyMilliseconds;
+extern int TimerHeightPixels;
 
 @interface Constants : NSObject
 @end

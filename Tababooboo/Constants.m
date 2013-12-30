@@ -15,7 +15,12 @@ UIColor *PrimarySelectedButtonBackgroundColor;
 
 UIColor *SecondaryHeaderColor;
 
-int InfiniteFontSize;
+UIColor *TimerBackgroundColor;
+UIColor *TimerProgressColor;
+
+int InfiniteFontSize = 200;
+int TimerFrequencyMilliseconds = 50;
+int TimerHeightPixels = 22;
 
 
 @implementation Constants
@@ -28,7 +33,8 @@ int InfiniteFontSize;
     
     SecondaryHeaderColor = [UIColor colorWithWhite:0.3 alpha:1.0];
     
-    InfiniteFontSize = 200;
+    TimerBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    TimerProgressColor = [UIColor colorWithRed:226/255.0f green:158/255.0f blue:221/255.0f alpha:1.0f];;
 }
 
 @end

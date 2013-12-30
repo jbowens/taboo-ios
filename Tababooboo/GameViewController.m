@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "Constants.h"
+#import "Game.h"
 
 @interface GameViewController ()
 
@@ -37,11 +38,9 @@
 
 - (void)updateTimer:(NSTimer *)timer
 {
-    if (self.secondsLeft > 0) {
-        self.secondsLeft -- ;
-        int minutes = (self.secondsLeft%3600)/60;
-        int seconds = (self.secondsLeft%3600)%60;
-        self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    if (1000 * self.secondsPerRound - self.millisecondsElapsed > 0) {
+        self.millisecondsElapsed += TimerFrequencyMilliseconds;
+        self.uiTimer.time = self.millisecondsElapsed;
     }
     else {
         NSLog(@"Timer reached 0 seconds.");
@@ -52,15 +51,23 @@
 
 - (void)addTimer
 {
-    self.timerLabel = [[UILabel alloc] init];
-    self.timerLabel.frame = CGRectMake(self.view.frame.size.width/2 - 25, 75, 50, 20);
-    [self.timerLabel setBackgroundColor:[UIColor clearColor]];
-    [self.timerLabel setTextColor:PrimaryHeaderColor];
-    int initMinutes = (self.secondsLeft%3600)/60;
-    int initSeconds = (self.secondsLeft%3600)%60;
-    self.timerLabel.text =[NSString stringWithFormat:@"%02d:%02d", initMinutes, initSeconds];
-    [self.view addSubview:self.timerLabel];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+    self.uiTimer = [[UITimer alloc] init];
+    self.uiTimer.maxTime = self.secondsPerRound * 1000;
+    self.uiTimer.backgroundColor = TimerBackgroundColor;
+    self.uiTimer.foregroundColor = TimerProgressColor;
+    self.uiTimer.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.uiTimer];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.uiTimer
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:0
+                                                           constant:TimerHeightPixels]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timer]" options:0 metrics:nil views: @{@"timer": self.uiTimer}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timer]|" options:0 metrics:nil views: @{@"timer": self.uiTimer}]];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: TimerFrequencyMilliseconds/1000.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
 }
 
 - (void)addCorrectButton
