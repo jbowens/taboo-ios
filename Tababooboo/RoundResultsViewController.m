@@ -39,13 +39,22 @@
     self.teamLabel.text = self.teamName;
     self.teamLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.teamLabel.textAlignment = NSTextAlignmentCenter;
-    self.teamLabel.adjustsFontSizeToFitWidth = NO;
-    self.teamLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    self.teamLabel.adjustsFontSizeToFitWidth = YES;
+    self.teamLabel.font = GuessWordFont;
     self.teamLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    self.teamLabel.numberOfLines = 2;
     [self.view addSubview:self.teamLabel];
+    
     // TODO : abstract out repeated code (like center) into a UIViewController interface
     [self center:self.teamLabel];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": self.teamLabel}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[w]-|" options:0 metrics:nil views:@{@"w": self.teamLabel}]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.teamLabel
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:10]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.teamLabel
                                                           attribute:NSLayoutAttributeHeight
                                                           relatedBy:NSLayoutRelationEqual
