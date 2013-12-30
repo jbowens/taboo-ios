@@ -39,7 +39,7 @@ float    ButtonsHeightAsPct = 0.10f;
 int      MinimumButtonContainerTopMargin = 10;
 
 float    TeamNameHeightAsPct = 0.15f;
-float    ResultWordsHeightAsPct = 0.7;
+float    ResultWordsHeightAsPct = 0.6;
 
 int      ProhibitedWordCount = 5;
 

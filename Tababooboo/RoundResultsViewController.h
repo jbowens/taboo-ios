@@ -10,7 +10,7 @@
 #import "Round.h"
 
 @protocol RoundResultsControllerDelegate <NSObject>
-
+- (void)switchToHomeController;
 @end
 
 @interface RoundResultsViewController : UIViewController <UIScrollViewDelegate>

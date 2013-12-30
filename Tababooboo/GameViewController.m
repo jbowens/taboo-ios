@@ -81,9 +81,6 @@
         [self.buttonCont exerciseAmbiguityInLayout];
     }
 #endif
-
-    [self viewNextWord];
-    
 }
 
 - (void)viewDidLoad
@@ -119,6 +116,7 @@
     [self addTimer];
     [self setupWordLabels];
     [self setupButtons];
+    [self viewNextWord];
 }
 
 - (void)updateTimer:(NSTimer *)timer
@@ -128,10 +126,10 @@
         self.uiTimer.time = self.millisecondsElapsed;
     }
     else {
-        NSLog(@"Timer reached 0 seconds.");
-        [self.delegate switchToRoundResultsController];
+        NSLog(@"Round ended.");
         [timer invalidate];
         timer = nil;
+        [self.delegate switchToRoundResultsController];
     }
 }
 

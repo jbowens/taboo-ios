@@ -32,10 +32,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self addTeamLabel];
+    [self setupUI];
 }
 
-- (void)addTeamLabel
+- (void)setupUI
 {
     self.teamLabel = [[UILabel alloc] init];
     self.teamLabel.text = self.teamName;
@@ -66,7 +66,6 @@
                                                            constant:0]];
     self.wordsView = [[UIScrollView alloc] init];
     self.wordsView.delegate = self;
-    [self.wordsView setBackgroundColor:PrimarySelectedButtonBackgroundColor];
     self.wordsView.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordsView.scrollEnabled = YES;
     self.wordsView.showsVerticalScrollIndicator = YES;
@@ -95,7 +94,7 @@
                                                           attribute:NSLayoutAttributeWidth
                                                          multiplier:1
                                                            constant:0]];
-    int wordListCount = [self.currRound.wordList count];
+    int wordListCount = (int) [self.currRound.wordList count];
     
     // TODO : Copy and pasted all this from GameViewController, which is probably bad OH WELL
     
@@ -154,6 +153,46 @@
     // For the last label, we want it to be flush against the bottom of the container
     [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
     
+    UIView *buttonBar = [[UIView alloc] init];
+    buttonBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:buttonBar];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bar]|" options:0 metrics:nil views:@{@"bar": buttonBar}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[bar]|" options:0 metrics:nil views:@{@"bar": buttonBar}]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonBar attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:buttonBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0.2 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordsView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:buttonBar attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    
+    UIButton *nextRoundButton = [[UIButton alloc] init];
+    nextRoundButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [nextRoundButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    nextRoundButton.translatesAutoresizingMaskIntoConstraints = NO;
+    nextRoundButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    nextRoundButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    [nextRoundButton setTitle:@"Next round" forState:UIControlStateNormal];
+    [buttonBar addSubview:nextRoundButton];
+    [buttonBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[b]|" options:0 metrics:nil views:@{@"b": nextRoundButton}]];
+    [buttonBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[b]|" options:0 metrics:nil views:@{@"b": nextRoundButton}]];
+    [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:nextRoundButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeWidth multiplier:0.40 constant:0]];
+    [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:nextRoundButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
+    
+    UIButton *mainMenuButton = [[UIButton alloc] init];
+    mainMenuButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [mainMenuButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    mainMenuButton.translatesAutoresizingMaskIntoConstraints = NO;
+    mainMenuButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    mainMenuButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    [mainMenuButton setTitle:@"Main menu" forState:UIControlStateNormal];
+    [buttonBar addSubview:mainMenuButton];
+    [buttonBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[b]" options:0 metrics:nil views:@{@"b": mainMenuButton}]];
+    [buttonBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[b]|" options:0 metrics:nil views:@{@"b": mainMenuButton}]];
+    [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:mainMenuButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeWidth multiplier:0.40 constant:0]];
+    [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:mainMenuButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
+    [mainMenuButton addTarget:self action:@selector(returnToMainMenu) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)returnToMainMenu {
+    [self.delegate switchToHomeController];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {

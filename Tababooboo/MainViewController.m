@@ -100,8 +100,14 @@
     self.gameController.secondsPerRound = self.selectTimeController.selectedTimeLimit;
     [self.game createNewTeam:@"Practice Mode"];
     [self.game beginNewRound];
-    [self pushViewController:self.gameController animated:NO];
+    [self pushViewController:self.gameController animated:YES];
 }
+
+- (void)switchToHomeController
+{
+    [self popToViewController:self.homeController animated:YES];
+}
+
 
 - (void)switchToRoundResultsController
 {
@@ -132,7 +138,7 @@
 
 - (void)goBack
 {
-    [self popToRootViewControllerAnimated:NO];
+    [self popViewControllerAnimated:YES];
 }
 
 - (Game *)getGame
