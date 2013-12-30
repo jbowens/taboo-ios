@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Word.h"
 
 @interface WordResult : NSObject
+
+@property Word      *word;
+@property bool      correct;
 
 @end

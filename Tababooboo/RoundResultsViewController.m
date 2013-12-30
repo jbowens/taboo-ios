@@ -8,6 +8,7 @@
 
 #import "RoundResultsViewController.h"
 #import "Constants.h"
+#import "WordResult.h"
 
 @interface RoundResultsViewController ()
 
@@ -98,7 +99,8 @@
         label.textColor = ProhibitedWordsColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
-        label.text = [self.currRound getWordResultWord:i];
+        WordResult* wr = [self.currRound.wordList objectAtIndex:i];
+        label.text = wr.word.word;
     }
 }
 

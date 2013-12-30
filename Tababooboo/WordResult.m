@@ -8,6 +8,18 @@
 
 #import "WordResult.h"
 
+@interface WordResult()
+@end
+
 @implementation WordResult
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 @end

@@ -10,15 +10,6 @@
 
 @interface Round : NSObject
 
-struct WordResult
-{
-    __unsafe_unretained NSString *word;
-    bool correct;
-};
-
-- (NSString *) getWordResultWord:(int)index;
-- (bool) getWordResultCorrect:(int)index;
-
 @property NSMutableArray *wordList;
 
 @end

@@ -20,16 +20,4 @@
     return self;
 }
 
-- (NSString *) getWordResultWord:(int)index
-{
-    struct WordResult* wr = (__bridge struct WordResult *)([self.wordList objectAtIndex:index]);
-    return wr->word;
-}
-
-- (bool) getWordResultCorrect:(int)index
-{
-    struct WordResult* wr = (__bridge struct WordResult *)([self.wordList objectAtIndex:index]);
-    return wr->correct;
-}
-
 @end

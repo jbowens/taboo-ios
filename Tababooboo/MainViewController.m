@@ -14,6 +14,7 @@
 #import "RandomizedWordSequence.h"
 #import "Game.h"
 #import "Team.h"
+#import "WordResult.h"
 #import "Constants.h"
 
 @interface MainViewController ()
@@ -109,7 +110,8 @@
     int numCorrect = 0;
     int numSkip = 0;
     for (int i = 0; i < numWords; ++i) {
-        if ([self.game.currRound getWordResultCorrect:i]) {
+        WordResult* wr = [self.game.currRound.wordList objectAtIndex:i];
+        if (wr.correct) {
             numCorrect++;
         } else {
             numSkip++;

@@ -9,25 +9,7 @@
 #import "Game.h"
 #import "Round.h"
 #import "Team.h"
-
-
-@interface WordResult : NSObject
-    @property Word      *word;
-    @property bool      correct;
-@end
-
-@implementation WordResult
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-@end
+#import "WordResult.h"
 
 @implementation Game
 
