@@ -29,7 +29,7 @@ float    GuessWordHeightAsPct = 0.20f;
 float    ProhibitedWordsHeightAsPct = 0.5;
 int      MinimumSpacingBetweenProhibitedWordsPixels = 10;
 float    ButtonsHeightAsPct = 0.10f;
-int      MinimumButtonContainerTopMargin = 20;
+int      MinimumButtonContainerTopMargin = 10;
 
 int      ProhibitedWordCount = 5;
 
