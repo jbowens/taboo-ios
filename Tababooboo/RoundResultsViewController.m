@@ -12,6 +12,7 @@
 @interface RoundResultsViewController ()
 
 @property UILabel* teamLabel;
+@property UIScrollView *wordsView;
 
 @end
 
@@ -52,7 +53,7 @@
                                                           attribute:NSLayoutAttributeTop
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view
-                                                          attribute:NSLayoutAttributeBottom
+                                                          attribute:NSLayoutAttributeTop
                                                          multiplier:1.0
                                                            constant:10]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.teamLabel
@@ -62,6 +63,43 @@
                                                           attribute:NSLayoutAttributeHeight
                                                         multiplier:TeamNameHeightAsPct
                                                            constant:0]];
+    self.wordsView = [[UIScrollView alloc] init];
+    self.wordsView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.wordsView];
+    
+    [self center:self.wordsView];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordsView
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:TeamNameHeightAsPct
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordsView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.teamLabel
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:10]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordsView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.teamLabel
+                                                          attribute:NSLayoutAttributeWidth
+                                                         multiplier:0.70
+                                                           constant:0]];
+    int wordListCount = [self.currRound.wordList count];
+    for (int i = 0; i < wordListCount; i++) {
+        UILabel *label = [[UILabel alloc] init];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = ProhibitedWordsFont;
+        label.textColor = ProhibitedWordsColor;
+        label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = [self.currRound getWordResultWord:i];
+    }
 }
 
 - (void) center:(UIView *)view
