@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Round.h"
+
+@protocol RoundResultsControllerDelegate <NSObject>
+
+@end
 
 @interface RoundResultsViewController : UIViewController
+
+@property NSString* teamName;
+@property Round* currRound;
+
+@property (weak, nonatomic) id<RoundResultsControllerDelegate> delegate;
 
 @end

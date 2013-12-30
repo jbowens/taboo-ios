@@ -31,6 +31,8 @@ int      MinimumSpacingBetweenProhibitedWordsPixels = 10;
 float    ButtonsHeightAsPct = 0.10f;
 int      MinimumButtonContainerTopMargin = 10;
 
+float    TeamNameHeightAsPct = 0.15f;
+
 int      ProhibitedWordCount = 5;
 
 @implementation Constants

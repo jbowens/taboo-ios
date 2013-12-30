@@ -10,22 +10,25 @@
 #import "HomeViewController.h"
 #import "SelectTimeViewController.h"
 #import "GameViewController.h"
+#import "RoundResultsViewController.h"
 #import "RandomizedWordSequence.h"
 #import "Game.h"
+#import "Team.h"
 #import "Constants.h"
 
 @interface MainViewController ()
 
 /// Game instance. Should be used to keep game state information.
-@property Game                      *game;
+@property Game                          *game;
 
 ///////////////////////////////////////////////////////
 /// Other view controllers
 ///////////////////////////////////////////////////////
 
-@property HomeViewController        *homeController;
-@property SelectTimeViewController  *selectTimeController;
-@property GameViewController        *gameController;
+@property HomeViewController            *homeController;
+@property SelectTimeViewController      *selectTimeController;
+@property GameViewController            *gameController;
+@property RoundResultsViewController    *roundResultsController;
 
 @end
 
@@ -48,6 +51,8 @@
     self.selectTimeController.delegate = self;
     self.gameController = [[GameViewController alloc] init];
     self.gameController.delegate = self;
+    self.roundResultsController = [[RoundResultsViewController alloc] init];
+    self.roundResultsController.delegate = self;
     self.game = [[Game alloc] init];
 }
 
@@ -112,6 +117,15 @@
     }
     NSLog(@"Num correct: %d, num skipped: %d", numCorrect, numSkip);
     // TODO : switch to RoundResultsViewController
+    Team* t = [self.game.teams objectAtIndex:self.game.currTeam];
+    self.roundResultsController.teamName = t.name;
+    self.roundResultsController.currRound = self.game.currRound;
+    [self pushViewController:self.roundResultsController animated:NO];
+}
+
+- (void)startNextRound
+{
+    // TODO : switch back to game controller and reset timer
 }
 
 - (void)goBack

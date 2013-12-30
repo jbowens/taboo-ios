@@ -32,6 +32,8 @@ extern int      MinimumSpacingBetweenProhibitedWordsPixels;
 extern float    ButtonsHeightAsPct;
 extern int      MinimumButtonContainerTopMargin;
 
+extern float    TeamNameHeightAsPct;
+
 extern int      ProhibitedWordCount;
 
 @interface Constants : NSObject
