@@ -354,7 +354,7 @@
 {
     wordResultButton *buttonClicked = (wordResultButton *)sender;
     Game* game = [self.delegate getGame];
-    [game updateRound:buttonClicked.word :buttonClicked.correct];
+    [game updateRound:self.currentWord :buttonClicked.correct];
     [self viewNextWord];
 }
 
