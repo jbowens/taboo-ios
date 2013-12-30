@@ -106,13 +106,13 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.adjustsFontSizeToFitWidth = YES;
         label.font = ProhibitedWordsFont;
-        label.textColor = SecondaryHeaderColor;
+        label.textColor = SkippedWordColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
         WordResult* wr = [self.currRound.wordList objectAtIndex:i];
         label.text = wr.word.word;
         if (wr.correct) {
-            label.textColor = [UIColor blackColor];
+            label.textColor = CorrectWordColor;
         }
         [self.wordsView addSubview:label];
         [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
@@ -120,12 +120,10 @@
         
         if (!prevLabel) {
             firstLabel = label;
-            // This is the first label. We need to make a constraint against
-            // the top of its container.
+            // This is the first label. We need to make a constraint against the top of its container.
             [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[w]" options:0 metrics:nil views:@{@"w": label}]];
         } else {
-            // There was a label before us. We need to add constraints to
-            // position this label in relation to that label.
+            // There was a label before us. We need to add constraints to position this label in relation to that label.
             [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label
                                                                             attribute:NSLayoutAttributeTop
                                                                             relatedBy:NSLayoutRelationGreaterThanOrEqual
@@ -141,7 +139,6 @@
                                                                             attribute:NSLayoutAttributeHeight
                                                                            multiplier:1.0
                                                                              constant:0]];
-            // We'd also like the vertical trailing space to be equal to the height.
         }
         prevLabel = label;
     }

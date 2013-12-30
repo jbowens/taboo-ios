@@ -23,6 +23,9 @@ extern UIColor *ProhibitedWordsColor;
 
 extern UIFont  *GuessWordFont;
 
+extern UIColor *CorrectWordColor;
+extern UIColor *SkippedWordColor;
+
 extern int      InfiniteFontSize;
 
 extern int      TimerFrequencyMilliseconds;

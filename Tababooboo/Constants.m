@@ -23,6 +23,9 @@ UIColor *ProhibitedWordsColor;
 
 UIFont  *GuessWordFont;
 
+UIColor *CorrectWordColor;
+UIColor *SkippedWordColor;
+
 int      InfiniteFontSize = 200;
 int      TimerFrequencyMilliseconds = 50;
 int      TimerHeightPixels = 4;
@@ -55,6 +58,9 @@ int      ProhibitedWordCount = 5;
     ProhibitedWordsColor = [UIColor colorWithWhite:0.2 alpha:1.0];
     
     GuessWordFont = [UIFont systemFontOfSize:40];
+    
+    CorrectWordColor = [UIColor blackColor];
+    SkippedWordColor = [UIColor colorWithWhite:0.6 alpha:1.0];
 }
 
 @end
