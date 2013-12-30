@@ -64,8 +64,8 @@
 		C471AB761870FCB700E7206E /* RoundResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundResultsViewController.m; sourceTree = "<group>"; };
 		C471AB771870FCB700E7206E /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		C471AB781870FCB700E7206E /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
-		C471AB7B1871448400E7206E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Tababooboo/Game.h; sourceTree = "<group>"; };
-		C471AB7C1871448400E7206E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Tababooboo/Game.m; sourceTree = "<group>"; };
+		C471AB7B1871448400E7206E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C471AB7C1871448400E7206E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C4B072121869568300055D92 /* Tababooboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tababooboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B072151869568300055D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4B072171869568300055D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,8 +122,6 @@
 		C4B072091869568200055D92 = {
 			isa = PBXGroup;
 			children = (
-				C471AB7B1871448400E7206E /* Game.h */,
-				C471AB7C1871448400E7206E /* Game.m */,
 				C4B0721B1869568300055D92 /* Tababooboo */,
 				C4B0723D1869568300055D92 /* TababoobooTests */,
 				C4B072141869568300055D92 /* Frameworks */,
@@ -154,6 +152,8 @@
 		C4B0721B1869568300055D92 /* Tababooboo */ = {
 			isa = PBXGroup;
 			children = (
+				C471AB7B1871448400E7206E /* Game.h */,
+				C471AB7C1871448400E7206E /* Game.m */,
 				C471AB751870FCB700E7206E /* RoundResultsViewController.h */,
 				C471AB761870FCB700E7206E /* RoundResultsViewController.m */,
 				C471AB771870FCB700E7206E /* Team.h */,

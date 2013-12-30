@@ -9,6 +9,9 @@
 #import "GameViewController.h"
 #import "Constants.h"
 #import "Game.h"
+#import "Word.h"
+#import "WordStore.h"
+#import "RandomizedWordSequence.h"
 
 @interface wordResultButton : UIButton
 @property NSString *word;
@@ -30,6 +33,13 @@
 
 @interface GameViewController ()
 
+/// Store of all known taboo words
+@property WordStore                 *wordStore;
+
+/// Current sequence. This should be used for retrieving the
+/// next words to display.
+@property RandomizedWordSequence    *currentSequence;
+
 @property wordResultButton     *correctButton;
 @property wordResultButton     *skipButton;
 
@@ -47,9 +57,9 @@
     return self;
 }
 
-#if DEBUG
 - (void)viewDidAppear:(BOOL)animated
 {
+#if DEBUG
     if ([self.uiTimer hasAmbiguousLayout]) {
         NSLog(@"uiTimer has ambiguous layout.");
         [self.uiTimer exerciseAmbiguityInLayout];
@@ -73,14 +83,25 @@
         [self.buttonCont exerciseAmbiguityInLayout];
     } else
         NSLog(@"button cont does NOT have ambiguous layout");
+#endif
+
+    [self viewNextWord];
     
 }
-#endif
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.wordStore = [[WordStore alloc] init];
+    
+    // Initializes the word store by reading words in from the json file
+    // included with the app.
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
+    [self.wordStore loadFromFile:filePath];
+    
+    self.currentSequence = [[RandomizedWordSequence alloc] initWithWordStore:self.wordStore];
+    
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addTimer];
     [self setupWordLabels];
@@ -299,9 +320,20 @@
                                                                  constant:0]];
 }
 
+- (Word *)nextWord
+{
+    if (![self.currentSequence hasNext]) {
+        [self.currentSequence restart];
+    }
+    
+    return [self.currentSequence next];
+}
+
 - (void) viewNextWord
 {
-    // TODO : displays next word
+    Word *nextWord = [self nextWord];
+    self.wordLabel.text = nextWord.word;
+    // TODO: Display prohibited words
 }
 
 - (void)addWordResultToRound:(id)sender

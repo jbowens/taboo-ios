@@ -15,13 +15,6 @@
 
 @interface MainViewController ()
 
-/// Store of all known taboo words
-@property WordStore                 *wordStore;
-
-/// Current sequence. This should be used for retrieving the
-/// next words to display.
-@property RandomizedWordSequence    *currentSequence;
-
 /// Game instance. Should be used to keep game state information.
 @property Game                      *game;
 
@@ -47,15 +40,6 @@
 
 - (void)setup
 {
-    self.wordStore = [[WordStore alloc] init];
-    
-    // Initializes the word store by reading words in from the json file
-    // included with the app.
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"json"];
-    [self.wordStore loadFromFile:filePath];
-    
-    self.currentSequence = [[RandomizedWordSequence alloc] initWithWordStore:self.wordStore];
-    
     // Init the other view controllers
     self.homeController = [[HomeViewController alloc] init];
     self.homeController.delegate = self;

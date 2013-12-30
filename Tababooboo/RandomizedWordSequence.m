@@ -61,5 +61,10 @@ NSInteger shuffleCmp(id a, id b, void* c)
     return [self->backingWordStore get:wordStoreIndex];
 }
 
+- (void) restart {
+    self->randomizedIndices = [self->randomizedIndices sortedArrayUsingFunction:shuffleCmp context:0];
+    self->nextIndex = 0;
+}
+
 
 @end
