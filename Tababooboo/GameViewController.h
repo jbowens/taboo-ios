@@ -31,6 +31,8 @@ void updateTimer();
 @property NSTimer      *timer;
 @property UITimer      *uiTimer;
 
+@property UIView       *buttonCont;
+
 @property int           secondsPerRound;
 @property int           millisecondsElapsed;
 @property (weak, nonatomic) id<GameViewControllerDelegate> delegate;
