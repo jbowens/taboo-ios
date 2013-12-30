@@ -18,18 +18,21 @@ extern UIColor *SecondaryHeaderColor;
 extern UIColor *TimerBackgroundColor;
 extern UIColor *TimerProgressColor;
 
-extern int InfiniteFontSize;
+extern UIFont  *ProhibitedWordsFont;
+extern UIColor *ProhibitedWordsColor;
 
-extern int TimerFrequencyMilliseconds;
-extern int TimerHeightPixels;
+extern int      InfiniteFontSize;
 
-extern float GuessWordHeightAsPct;
-extern float ProhibitedWordsHeightAsPct;
-extern int MinimumSpacingBetweenProhibitedWordsPixels;
-extern float ButtonsHeightAsPct;
-extern int MinimumButtonContainerTopMargin;
+extern int      TimerFrequencyMilliseconds;
+extern int      TimerHeightPixels;
 
-extern int ProhibitedWordCount;
+extern float    GuessWordHeightAsPct;
+extern float    ProhibitedWordsHeightAsPct;
+extern int      MinimumSpacingBetweenProhibitedWordsPixels;
+extern float    ButtonsHeightAsPct;
+extern int      MinimumButtonContainerTopMargin;
+
+extern int      ProhibitedWordCount;
 
 @interface Constants : NSObject
 @end

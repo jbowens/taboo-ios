@@ -18,17 +18,20 @@ UIColor *SecondaryHeaderColor;
 UIColor *TimerBackgroundColor;
 UIColor *TimerProgressColor;
 
-int InfiniteFontSize = 200;
-int TimerFrequencyMilliseconds = 50;
-int TimerHeightPixels = 22;
+UIFont  *ProhibitedWordsFont;
+UIColor *ProhibitedWordsColor;
 
-float GuessWordHeightAsPct = 0.20f;
-float ProhibitedWordsHeightAsPct = 0.6;
-int MinimumSpacingBetweenProhibitedWordsPixels = 10;
-float ButtonsHeightAsPct = 0.10f;
-int MinimumButtonContainerTopMargin = 20;
+int      InfiniteFontSize = 200;
+int      TimerFrequencyMilliseconds = 50;
+int      TimerHeightPixels = 22;
 
-int ProhibitedWordCount = 5;
+float    GuessWordHeightAsPct = 0.20f;
+float    ProhibitedWordsHeightAsPct = 0.6;
+int      MinimumSpacingBetweenProhibitedWordsPixels = 10;
+float    ButtonsHeightAsPct = 0.10f;
+int      MinimumButtonContainerTopMargin = 20;
+
+int      ProhibitedWordCount = 5;
 
 @implementation Constants
 
@@ -41,7 +44,10 @@ int ProhibitedWordCount = 5;
     SecondaryHeaderColor = [UIColor colorWithWhite:0.3 alpha:1.0];
     
     TimerBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
-    TimerProgressColor = [UIColor colorWithRed:226/255.0f green:158/255.0f blue:221/255.0f alpha:1.0f];;
+    TimerProgressColor = [UIColor colorWithRed:226/255.0f green:158/255.0f blue:221/255.0f alpha:1.0f];
+    
+    ProhibitedWordsFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:InfiniteFontSize];
+    ProhibitedWordsColor = [UIColor colorWithWhite:0.2 alpha:1.0];
 }
 
 @end

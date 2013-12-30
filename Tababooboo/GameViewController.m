@@ -135,7 +135,8 @@
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.adjustsFontSizeToFitWidth = YES;
-        label.font = [UIFont systemFontOfSize:InfiniteFontSize];
+        label.font = ProhibitedWordsFont;
+        label.textColor = ProhibitedWordsColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
         label.text = @"Dummy text";
