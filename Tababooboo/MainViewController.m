@@ -23,7 +23,7 @@
 @property RandomizedWordSequence    *currentSequence;
 
 /// Game instance. Should be used to keep game state information.
-@property Game *game;
+@property Game                      *game;
 
 ///////////////////////////////////////////////////////
 /// Other view controllers
@@ -63,7 +63,7 @@
     self.selectTimeController.delegate = self;
     self.gameController = [[GameViewController alloc] init];
     self.gameController.delegate = self;
-    //self.game = [[Game alloc] init];
+    self.game = [[Game alloc] init];
 }
 
 - (void)viewDidLoad
@@ -90,8 +90,8 @@
 - (void)switchToGameController
 {
     self.gameController.secondsPerRound = self.selectTimeController.selectedTimeLimit;
-    //[self.game createNewTeam:@"Practice Mode"];
-    //[self.game beginNewRound];
+    [self.game createNewTeam:@"Practice Mode"];
+    [self.game beginNewRound];
     [self pushViewController:self.gameController animated:NO];
 }
 
