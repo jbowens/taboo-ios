@@ -152,9 +152,11 @@
     //self.wordLabel.backgroundColor = [UIColor purpleColor];
     self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordLabel.textAlignment = NSTextAlignmentCenter;
-    self.wordLabel.adjustsFontSizeToFitWidth = YES;
-    self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    //self.wordLabel.adjustsFontSizeToFitWidth = YES;
+    //self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    self.wordLabel.font = [UIFont systemFontOfSize:32];
     self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    self.wordLabel.numberOfLines = 2;
     [self.view addSubview:self.wordLabel];
     
     [self center:self.wordLabel];
@@ -219,6 +221,7 @@
         label.text = @"Dummy text";
         [prohibitedContainer addSubview:label];
         [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
+        [prohibitedContainer addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:prohibitedContainer attribute:NSLayoutAttributeHeight multiplier:1.0f/ProhibitedWordCount constant:-1]];
         
         if (!prevLabel) {
             firstLabel = label;

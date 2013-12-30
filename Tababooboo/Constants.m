@@ -46,7 +46,7 @@ int      ProhibitedWordCount = 5;
     TimerBackgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
     TimerProgressColor = [UIColor colorWithRed:226/255.0f green:158/255.0f blue:221/255.0f alpha:1.0f];
     
-    ProhibitedWordsFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:InfiniteFontSize];
+    ProhibitedWordsFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:22];
     ProhibitedWordsColor = [UIColor colorWithWhite:0.2 alpha:1.0];
 }
 
