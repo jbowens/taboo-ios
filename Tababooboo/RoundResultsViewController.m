@@ -65,7 +65,11 @@
                                                         multiplier:TeamNameHeightAsPct
                                                            constant:0]];
     self.wordsView = [[UIScrollView alloc] init];
+    [self.wordsView setBackgroundColor:PrimarySelectedButtonBackgroundColor];
     self.wordsView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.wordsView.scrollEnabled = YES;
+    self.wordsView.showsVerticalScrollIndicator = YES;
+    self.wordsView.userInteractionEnabled = YES;
     [self.view addSubview:self.wordsView];
     
     [self center:self.wordsView];
@@ -74,7 +78,7 @@
                                                           relatedBy:NSLayoutRelationGreaterThanOrEqual
                                                              toItem:self.view
                                                           attribute:NSLayoutAttributeHeight
-                                                         multiplier:TeamNameHeightAsPct
+                                                         multiplier:ResultWordsHeightAsPct
                                                            constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.wordsView
                                                           attribute:NSLayoutAttributeTop
@@ -88,20 +92,62 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.teamLabel
                                                           attribute:NSLayoutAttributeWidth
-                                                         multiplier:0.70
+                                                         multiplier:1
                                                            constant:0]];
     int wordListCount = [self.currRound.wordList count];
+    
+    // TODO : Copy and pasted all this from GameViewController, which is probably bad OH WELL
+    
+    UILabel *firstLabel = nil;
+    UILabel *prevLabel = nil;
+    
     for (int i = 0; i < wordListCount; i++) {
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.adjustsFontSizeToFitWidth = YES;
         label.font = ProhibitedWordsFont;
-        label.textColor = ProhibitedWordsColor;
+        label.textColor = SecondaryHeaderColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
         WordResult* wr = [self.currRound.wordList objectAtIndex:i];
         label.text = wr.word.word;
+        if (wr.correct) {
+            label.textColor = [UIColor blackColor];
+        }
+        [self.wordsView addSubview:label];
+        [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
+        [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.wordsView attribute:NSLayoutAttributeHeight multiplier:1.0f/wordListCount constant:-1]];
+        
+        if (!prevLabel) {
+            firstLabel = label;
+            // This is the first label. We need to make a constraint against
+            // the top of its container.
+            [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[w]" options:0 metrics:nil views:@{@"w": label}]];
+        } else {
+            // There was a label before us. We need to add constraints to
+            // position this label in relation to that label.
+            [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                            attribute:NSLayoutAttributeTop
+                                                                            relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                               toItem:prevLabel
+                                                                            attribute:NSLayoutAttributeBottom
+                                                                           multiplier:1.0
+                                                                             constant:0]];
+            // This label must also be the same height as the previous label.
+            [self.wordsView addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:firstLabel
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                           multiplier:1.0
+                                                                             constant:0]];
+            // We'd also like the vertical trailing space to be equal to the height.
+        }
+        prevLabel = label;
     }
+    // For the last label, we want it to be flush against the bottom of the container
+    [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
+    
 }
 
 - (void) center:(UIView *)view

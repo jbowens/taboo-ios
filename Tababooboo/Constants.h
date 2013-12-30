@@ -35,6 +35,7 @@ extern float    ButtonsHeightAsPct;
 extern int      MinimumButtonContainerTopMargin;
 
 extern float    TeamNameHeightAsPct;
+extern float    ResultWordsHeightAsPct;
 
 extern int      ProhibitedWordCount;
 
