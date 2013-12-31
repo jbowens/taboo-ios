@@ -9,11 +9,11 @@
 #import "ModeSelectViewController.h"
 #import "Constants.h"
 
-@interface OptionButton : UIButton
+@interface OptButton : UIButton
 @property bool teamMode;
 @end
 
-@implementation OptionButton
+@implementation OptButton
 
 - (id)init
 {
@@ -28,8 +28,8 @@
 
 @interface ModeSelectViewController ()
 
-@property OptionButton *practiceButton;
-@property OptionButton *teamButton;
+@property OptButton *practiceButton;
+@property OptButton *teamButton;
 
 @end
 
@@ -53,20 +53,20 @@
     [self addOptionButtons];
 }
 
-- (OptionButton *) createOption
+- (OptButton *) createOption
 {
-    OptionButton *optionButton = [OptionButton buttonWithType:UIButtonTypeRoundedRect];
-    optionButton.translatesAutoresizingMaskIntoConstraints = NO;
-    optionButton.backgroundColor = PrimaryButtonBackgroundColor;
-    [optionButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
-    optionButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    optionButton.titleLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
-    optionButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    optionButton.titleLabel.minimumScaleFactor = 0.1;
-    optionButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-    [optionButton addTarget:self action:@selector(setGameMode:) forControlEvents:UIControlEventTouchUpInside];
+    OptButton *optButton = [OptButton buttonWithType:UIButtonTypeRoundedRect];
+    optButton.translatesAutoresizingMaskIntoConstraints = NO;
+    optButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [optButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    optButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    optButton.titleLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
+    optButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    optButton.titleLabel.minimumScaleFactor = 0.1;
+    optButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    [optButton addTarget:self action:@selector(setGameMode:) forControlEvents:UIControlEventTouchUpInside];
     
-    return optionButton;
+    return optButton;
 }
 
 - (void)addOptionButtons
