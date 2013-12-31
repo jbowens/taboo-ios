@@ -60,8 +60,12 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    self.millisecondsElapsed = 0;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: TimerFrequencyMilliseconds/1000.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+    [self viewNextWord];
+    
 #if DEBUG
     // Check for ambiguous layouts.
     if ([self.uiTimer hasAmbiguousLayout]) {
@@ -116,7 +120,6 @@
     [self addTimer];
     [self setupWordLabels];
     [self setupButtons];
-    [self viewNextWord];
 }
 
 - (void)updateTimer:(NSTimer *)timer
@@ -151,20 +154,16 @@
                                                            constant:TimerHeightPixels]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[timer]" options:0 metrics:nil views: @{@"timer": self.uiTimer}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[timer]|" options:0 metrics:nil views: @{@"timer": self.uiTimer}]];
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: TimerFrequencyMilliseconds/1000.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
 }
 
 - (void)setupWordLabels
 {
     // Construct the primary word label for the guess word.
     self.wordLabel = [[UILabel alloc] init];
-    self.wordLabel.text = @"Dummy text";
-    //self.wordLabel.backgroundColor = [UIColor purpleColor];
+    self.wordLabel.text = @"";
     self.wordLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.wordLabel.textAlignment = NSTextAlignmentCenter;
     self.wordLabel.adjustsFontSizeToFitWidth = YES;
-    //self.wordLabel.font = [UIFont systemFontOfSize:InfiniteFontSize];
     self.wordLabel.font = GuessWordFont;
     self.wordLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.wordLabel.numberOfLines = 2;
@@ -188,7 +187,6 @@
                                                            constant:0]];
     // Setup the container for the prohibited words. All labels will be relative to this.
     UIView *prohibitedContainer = [[UIView alloc] init];
-    //prohibitedContainer.backgroundColor = [UIColor orangeColor];
     prohibitedContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:prohibitedContainer];
     
@@ -229,7 +227,7 @@
         label.textColor = ProhibitedWordsColor;
         label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"Dummy text";
+        label.text = @"";
         [prohibitedContainer addSubview:label];
         [prohibitedContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[w]|" options:0 metrics:nil views:@{@"w": label}]];
         [prohibitedContainer addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:prohibitedContainer attribute:NSLayoutAttributeHeight multiplier:1.0f/ProhibitedWordCount constant:-1]];

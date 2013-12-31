@@ -28,6 +28,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // TODO: Gotta update dem labels
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

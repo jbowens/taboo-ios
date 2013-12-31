@@ -98,6 +98,7 @@
 - (void)switchToGameController
 {
     self.gameController.secondsPerRound = self.selectTimeController.selectedTimeLimit;
+    self.gameController.millisecondsElapsed = 0;
     [self.game createNewTeam:@"Practice Mode"];
     [self.game beginNewRound];
     [self pushViewController:self.gameController animated:YES];
