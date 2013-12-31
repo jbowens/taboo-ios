@@ -179,6 +179,7 @@
     [buttonBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[b]|" options:0 metrics:nil views:@{@"b": nextRoundButton}]];
     [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:nextRoundButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeWidth multiplier:0.40 constant:0]];
     [buttonBar addConstraint:[NSLayoutConstraint constraintWithItem:nextRoundButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:buttonBar attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
+    [nextRoundButton addTarget:self action:@selector(nextRound) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *mainMenuButton = [[UIButton alloc] init];
     mainMenuButton.backgroundColor = PrimaryButtonBackgroundColor;
@@ -198,6 +199,10 @@
 
 - (void)returnToMainMenu {
     [self.delegate switchToHomeController];
+}
+
+- (void)nextRound {
+    [self.delegate goBack];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {

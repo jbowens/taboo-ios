@@ -11,6 +11,7 @@
 
 @protocol RoundResultsControllerDelegate <NSObject>
 - (void)switchToHomeController;
+- (void)goBack;
 @end
 
 @interface RoundResultsViewController : UIViewController <UIScrollViewDelegate>
