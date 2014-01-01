@@ -1,4 +1,4 @@
 Tababooboo
 ==========
 
-A word guessing iOS game that's really fun. Trust us.
+An iOS word guessing party game that's really fun. Trust us.
