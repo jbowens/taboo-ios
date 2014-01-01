@@ -14,7 +14,7 @@
  Called when a SelectTimeViewControllerDelegate wants to pop a controller
  */
 - (void)goBack;
-- (void)switchToGameController;
+- (void)switchToSelectTimeController;
 
 @end
 

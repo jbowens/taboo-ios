@@ -124,7 +124,7 @@
 
 - (void)playAction
 {
-    [self.delegate switchToSelectTimeController];
+    [self.delegate switchToModeSelectController];
 }
 
 - (UIButton *)createRulesButton

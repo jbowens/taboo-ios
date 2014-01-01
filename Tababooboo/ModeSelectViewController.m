@@ -30,6 +30,7 @@
 
 @property OptButton *practiceButton;
 @property OptButton *teamButton;
+@property bool selectedOption;
 
 @end
 
@@ -51,6 +52,8 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addOptionButtons];
+    [self addBackButton];
+    [self addNextScreenButton];
 }
 
 - (OptButton *) createOption
@@ -88,17 +91,116 @@
     
     [self.view addSubview:optionsView];
     
-    /** NSDictionary *viewDict = @{
+    NSDictionary *viewDict = @{
                                @"optionsView": optionsView,
                                @"prac": self.practiceButton,
                                @"team": self.teamButton,
                                };
-    */
+    
+    // Position the options within the option view
+    NSArray *constraintStrs = @[@"|[prac]|", @"|[team]|", @"V:|[prac]", @"V:[team]|"];
+    for (NSString *s in constraintStrs) {
+        [optionsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:s
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:viewDict]];
+    }
+    // Make all the options 25% the height of the option view
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.practiceButton
+                                                            attribute:NSLayoutAttributeHeight
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeHeight
+                                                           multiplier:0.20
+                                                             constant:0]];
+    [optionsView addConstraint:[NSLayoutConstraint constraintWithItem:self.teamButton
+                                                            attribute:NSLayoutAttributeHeight
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:optionsView
+                                                            attribute:NSLayoutAttributeHeight
+                                                           multiplier:0.20
+                                                             constant:0]];
+    // Position the optionsView container
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeHeight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeHeight
+                                                         multiplier:0.5
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeWidth
+                                                         multiplier:0.5
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeCenterX
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterX
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:optionsView
+                                                          attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0
+                                                           constant:0.0]];
 }
 
 - (void)setGameMode:(id)sender
 {
-    
+    OptButton *buttonClicked = (OptButton *)sender;
+    self.teamMode = buttonClicked.teamMode;
+    self.practiceButton.backgroundColor = PrimaryButtonBackgroundColor;
+    self.teamButton.backgroundColor = PrimaryButtonBackgroundColor;
+    buttonClicked.backgroundColor = PrimarySelectedButtonBackgroundColor;
+    self.selectedOption = true;
+}
+
+- (void)playAction
+{
+    [self.delegate switchToSelectTimeController];
+}
+
+- (void)addBackButton
+{
+    self.backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.backButton.frame = CGRectMake(10, self.view.frame.size.height-50.0, 100.0, 30.0);
+    [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
+    self.backButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.backButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal ];
+    [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.backButton];
+}
+
+- (void)goBack
+{
+    [self.delegate goBack];
+}
+
+- (void)addNextScreenButton
+{
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.nextButton.frame = CGRectMake(self.view.frame.size.width-100.0, self.view.frame.size.height-50.0, 100.0, 30.0);
+    [self.nextButton setTitle:@"Start" forState:UIControlStateNormal];
+    self.nextButton.backgroundColor = PrimaryButtonBackgroundColor;
+    [self.nextButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
+    // TODO: customize UI components (styling for buttons, etc)
+    [self.nextButton addTarget:self action:@selector(nextScreen) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.nextButton];
+}
+
+- (void)nextScreen
+{
+    if (self.selectedOption) {
+        [self.delegate switchToSelectTimeController];
+    } else {
+        NSLog(@"Error: Select a play mode.");
+    }
 }
 
 - (void)didReceiveMemoryWarning

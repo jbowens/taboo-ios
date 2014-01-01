@@ -13,7 +13,7 @@
 /**
  Called when a HomeViewControllerDelegate wants to switch to a SelectTimeViewController
  */
-- (void)switchToSelectTimeController;
+- (void)switchToModeSelectController;
 
 @end
 

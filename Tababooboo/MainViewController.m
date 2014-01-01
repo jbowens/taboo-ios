@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "HomeViewController.h"
+#import "ModeSelectViewController.h"
 #import "SelectTimeViewController.h"
 #import "GameViewController.h"
 #import "RoundResultsViewController.h"
@@ -27,9 +28,11 @@
 ///////////////////////////////////////////////////////
 
 @property HomeViewController            *homeController;
+@property ModeSelectViewController      *modeSelectController;
 @property SelectTimeViewController      *selectTimeController;
 @property GameViewController            *gameController;
 @property RoundResultsViewController    *roundResultsController;
+@property bool teamMode;
 
 @end
 
@@ -54,6 +57,8 @@
     self.gameController.delegate = self;
     self.roundResultsController = [[RoundResultsViewController alloc] init];
     self.roundResultsController.delegate = self;
+    self.modeSelectController = [[ModeSelectViewController alloc] init];
+    self.modeSelectController.delegate = self;
     self.game = [[Game alloc] init];
 }
 
@@ -73,8 +78,23 @@
     [self pushViewController:self.homeController animated:NO];
 }
 
+- (void)switchToModeSelectController
+{
+    CATransition *animation = [CATransition animation];
+    [self pushViewController:self.modeSelectController animated:NO];
+    [animation setDuration:0.45];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    [[self.modeSelectController.view layer] addAnimation:animation forKey:@"SwitchToModeSelectView"];
+}
+
 - (void)switchToSelectTimeController
 {
+    self.teamMode = self.modeSelectController.teamMode;
+    if (self.teamMode) {
+        // TODO : make an "add team" view controller
+    }
     
     CATransition *animation = [CATransition animation];
     [self pushViewController:self.selectTimeController animated:NO];
@@ -82,7 +102,7 @@
     [animation setType:kCATransitionPush];
     [animation setSubtype:kCATransitionFromRight];
     [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-    [[self.selectTimeController.view layer] addAnimation:animation forKey:@"SwitchToView1"];
+    [[self.selectTimeController.view layer] addAnimation:animation forKey:@"SwitchToSelectTimeView"];
 
     // Below code is for a fade transition... thought it was meh
     // but keeping the code just in case
