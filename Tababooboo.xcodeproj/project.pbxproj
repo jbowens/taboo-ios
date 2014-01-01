@@ -35,6 +35,8 @@
 		C4B0724F1869582300055D92 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0724E1869582300055D92 /* Word.m */; };
 		C4B07251186A8ADF00055D92 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B07250186A8ADF00055D92 /* words.json */; };
 		C4B07254186A8CD100055D92 /* WordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B07253186A8CD100055D92 /* WordStore.m */; };
+		C4EC84E41874D843008CF162 /* AddTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EC84E11874D843008CF162 /* AddTeamViewController.m */; };
+		C4EC84E51874D843008CF162 /* ModeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EC84E31874D843008CF162 /* ModeSelectViewController.m */; };
 		D4E93709186E62B500DD000A /* SelectTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E93708186E62B500DD000A /* SelectTimeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,10 @@
 		C4B07250186A8ADF00055D92 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		C4B07252186A8CD100055D92 /* WordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordStore.h; sourceTree = "<group>"; };
 		C4B07253186A8CD100055D92 /* WordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordStore.m; sourceTree = "<group>"; };
+		C4EC84E01874D843008CF162 /* AddTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTeamViewController.h; sourceTree = "<group>"; };
+		C4EC84E11874D843008CF162 /* AddTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTeamViewController.m; sourceTree = "<group>"; };
+		C4EC84E21874D843008CF162 /* ModeSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeSelectViewController.h; sourceTree = "<group>"; };
+		C4EC84E31874D843008CF162 /* ModeSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeSelectViewController.m; sourceTree = "<group>"; };
 		D4E93707186E62B500DD000A /* SelectTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeViewController.h; sourceTree = "<group>"; };
 		D4E93708186E62B500DD000A /* SelectTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +161,10 @@
 		C4B0721B1869568300055D92 /* Tababooboo */ = {
 			isa = PBXGroup;
 			children = (
+				C4EC84E01874D843008CF162 /* AddTeamViewController.h */,
+				C4EC84E11874D843008CF162 /* AddTeamViewController.m */,
+				C4EC84E21874D843008CF162 /* ModeSelectViewController.h */,
+				C4EC84E31874D843008CF162 /* ModeSelectViewController.m */,
 				C471AB7B1871448400E7206E /* Game.h */,
 				C471AB7C1871448400E7206E /* Game.m */,
 				C471AB751870FCB700E7206E /* RoundResultsViewController.h */,
@@ -328,6 +338,7 @@
 				C471AB7D1871448400E7206E /* Game.m in Sources */,
 				C471AB6E186F8DAF00E7206E /* Constants.m in Sources */,
 				C41727661871F148009CA93D /* WordResult.m in Sources */,
+				C4EC84E41874D843008CF162 /* AddTeamViewController.m in Sources */,
 				C471AB6B186F7C5C00E7206E /* GameViewController.m in Sources */,
 				C470CFCF186D58E200D73F5E /* Round.m in Sources */,
 				C470CFD2186D5B4C00D73F5E /* RandomizedWordSequence.m in Sources */,
@@ -339,6 +350,7 @@
 				C4B072261869568300055D92 /* AppDelegate.m in Sources */,
 				C4B072221869568300055D92 /* main.m in Sources */,
 				C471AB68186E58F000E7206E /* HomeViewController.m in Sources */,
+				C4EC84E51874D843008CF162 /* ModeSelectViewController.m in Sources */,
 				C471AB7A1870FCB700E7206E /* Team.m in Sources */,
 				C471AB741870F51600E7206E /* UITimer.m in Sources */,
 			);
