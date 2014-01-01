@@ -186,7 +186,7 @@
 {
     self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.nextButton.frame = CGRectMake(self.view.frame.size.width-100.0, self.view.frame.size.height-50.0, 100.0, 30.0);
-    [self.nextButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     self.nextButton.backgroundColor = PrimaryButtonBackgroundColor;
     [self.nextButton setTitleColor:PrimaryHeaderColor forState:UIControlStateNormal];
     // TODO: customize UI components (styling for buttons, etc)
