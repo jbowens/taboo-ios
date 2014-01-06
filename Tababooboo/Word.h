@@ -19,5 +19,6 @@
 
 - (id)initWithId:(int)identifier word:(NSString *)word prohibitedWords:(NSSet *)prohibitedWords;
 - (id)initFromDictionary:(NSDictionary *)dict;
+- (NSString *)formattedWord;
 
 @end

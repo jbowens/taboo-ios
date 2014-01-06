@@ -43,4 +43,17 @@
     }
 }
 
+- (NSString *)formattedWord {
+    int occurrenceCapital = 0;
+    for (int i = 0; i < [self.word length]; i++) {
+        if([[NSCharacterSet uppercaseLetterCharacterSet] characterIsMember:[self.word characterAtIndex:i]])
+            occurrenceCapital++;
+    }
+    
+    if (occurrenceCapital > 0)
+        return self.word;
+    else
+        return [self.word capitalizedString];
+}
+
 @end

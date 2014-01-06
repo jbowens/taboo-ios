@@ -347,7 +347,7 @@
 - (void) viewNextWord
 {
     Word *nextWord = [self nextWord];
-    self.wordLabel.text = nextWord.word;
+    self.wordLabel.text = [nextWord formattedWord];
     
     NSArray *prohibitedWords = [nextWord.prohibitedWords allObjects];
     for (int i = 0; i < ProhibitedWordCount; ++i) {
