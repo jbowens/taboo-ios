@@ -156,7 +156,9 @@
         prevLabel = label;
     }
     // For the last label, we want it to be flush against the bottom of the container
-    [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
+    if (prevLabel != nil) {
+        [self.wordsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[w]|" options: 0 metrics:nil views:@{@"w": prevLabel}]];
+    }
     
     UIView *buttonBar = [[UIView alloc] init];
     buttonBar.translatesAutoresizingMaskIntoConstraints = NO;
