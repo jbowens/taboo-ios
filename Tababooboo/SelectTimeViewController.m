@@ -53,8 +53,9 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addOptionButtons];
-    [self addBackButton];
-    [self addStartGameButton];
+    //[self addBackButton];
+    //[self addStartGameButton];
+    [self addSwipeBack];
 }
 
 - (OptionButton *) createOption
@@ -71,6 +72,14 @@
     [optionButton addTarget:self action:@selector(setTimeLimit:) forControlEvents:UIControlEventTouchUpInside];
     
     return optionButton;
+}
+
+
+- (void)addSwipeBack
+{
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack)];
+    swipeGesture.direction = (UISwipeGestureRecognizerDirectionRight);
+    [self.view addGestureRecognizer:swipeGesture];
 }
 
 - (void)addOptionButtons
@@ -195,8 +204,10 @@
     self.option2Button.backgroundColor = PrimaryButtonBackgroundColor;
     self.option3Button.backgroundColor = PrimaryButtonBackgroundColor;
     buttonClicked.backgroundColor = PrimarySelectedButtonBackgroundColor;
+    [self startGame];
 }
 
+/*
 - (void)addBackButton
 {
     self.backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -207,12 +218,14 @@
     [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
 }
+*/
 
 - (void)goBack
 {
     [self.delegate goBack];
 }
 
+/*
 - (void)addStartGameButton
 {
     self.startGameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -224,6 +237,7 @@
     [self.startGameButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.startGameButton];
 }
+*/
 
 - (void)startGame
 {

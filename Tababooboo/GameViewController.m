@@ -13,12 +13,12 @@
 #import "WordStore.h"
 #import "RandomizedWordSequence.h"
 
-@interface wordResultButton : UIButton
+@interface wordResultSwipe : UISwipeGestureRecognizer
 @property NSString *word;
 @property bool correct;
 @end
 
-@implementation wordResultButton
+@implementation wordResultSwipe
 
 - (id)init
 {
@@ -43,8 +43,13 @@
 /// The word currently being displayed
 @property Word                      *currentWord;
 
-@property wordResultButton          *correctButton;
-@property wordResultButton          *skipButton;
+@property wordResultSwipe          *correctSwipe;
+@property wordResultSwipe          *skipSwipe;
+
+@property UIImage                  *screenShot;
+@property UIImageView              *imageView;
+
+@property UILabel                  *correctLabel;
 
 @end
 
@@ -119,7 +124,8 @@
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addTimer];
     [self setupWordLabels];
-    [self setupButtons];
+    [self setupSwipes];
+    //[self setupButtons];
 }
 
 - (void)updateTimer:(NSTimer *)timer
@@ -143,6 +149,7 @@
     self.uiTimer.backgroundColor = TimerBackgroundColor;
     self.uiTimer.foregroundColor = TimerProgressColor;
     self.uiTimer.translatesAutoresizingMaskIntoConstraints = NO;
+    self.uiTimer.layer.zPosition = MAXFLOAT;
     [self.view addSubview:self.uiTimer];
     [self center:self.uiTimer];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.uiTimer
@@ -269,6 +276,102 @@
     self.prohibitedWordLabels = prohibitedWordLabels;
 }
 
+- (void)setupSwipes
+{
+    self.correctSwipe = [[wordResultSwipe alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    self.correctSwipe.direction = (UISwipeGestureRecognizerDirectionDown);
+    self.correctSwipe.word = self.wordLabel.text;
+    self.correctSwipe.correct = true;
+    [self.view addGestureRecognizer:self.correctSwipe];
+    
+    
+    self.skipSwipe = [[wordResultSwipe alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    self.skipSwipe .direction = (UISwipeGestureRecognizerDirectionUp);
+    self.skipSwipe.word = self.wordLabel.text;
+    self.skipSwipe.correct = false;
+    [self.view addGestureRecognizer:self.skipSwipe];
+}
+
+// Helper function that will crop the timer image out of the way.
+- (UIImage *)croppIngimageByImageName:(UIImage *)imageToCrop toRect:(CGRect)rect
+{
+    //CGRect CropRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height+15);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
+    
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
+}
+
+- (void)addCorrectLabel
+{
+    //Sets the +1 for a correct answer ready for use
+    NSInteger widthOfLabel = 100;
+    NSInteger heightOfLabel = 100;
+    
+    NSInteger widthOfScreen = self.view.bounds.size.width;
+    NSInteger heightOfScreen = self.view.bounds.size.height;
+    
+    self.correctLabel = [[UILabel alloc] init];
+    self.correctLabel.frame = CGRectMake(widthOfScreen/2-widthOfLabel/2, heightOfScreen/2-heightOfLabel/2,
+                                         widthOfLabel, heightOfLabel);
+    self.correctLabel.text = @"+1";
+    self.correctLabel.textColor=PrimaryHeaderColor;
+    [self.correctLabel setFont:[UIFont fontWithName:@"Arial Black" size:80]];
+    [self.correctLabel setFont:[UIFont systemFontOfSize:80]];
+    [self.view addSubview:self.correctLabel];
+    self.correctLabel.layer.zPosition = MAXFLOAT;
+    // If correct show a label with a +1
+    [UIView animateWithDuration:1.0f delay:0.0f options:0
+                     animations:^{self.correctLabel.alpha = 0.0;}
+                     completion:^(BOOL finished) {[self.correctLabel removeFromSuperview];}];
+}
+
+- (void)swipedScreen:(wordResultSwipe*)recognizer
+{
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.view.layer renderInContext:context];
+    self.screenShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGFloat notificationBarHeight = 5;
+    CGRect cropRect = CGRectMake(0, notificationBarHeight, self.view.bounds.size.width, self.view.bounds.size.height- notificationBarHeight);
+    self.screenShot = [self croppIngimageByImageName:self.screenShot toRect:cropRect];
+    
+    self.imageView = [[UIImageView alloc] initWithImage:self.screenShot];
+    self.imageView.frame = CGRectMake(0, notificationBarHeight, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:self.imageView];
+    
+    NSInteger transitioningLocation;
+    // If correct the screenshot swipes up.
+    if(recognizer.correct)
+    {
+        transitioningLocation = self.view.frame.size.height;
+        [self addCorrectLabel];
+    }
+    else
+    {
+        transitioningLocation = -self.view.frame.size.height;
+    }
+    
+    [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.imageView.frame = CGRectMake(0, transitioningLocation, self.imageView.frame.size.width, self.imageView.frame.size.height);
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                         }
+                     }];
+    
+    Game* game = [self.delegate getGame];
+    [game updateRound:self.currentWord :recognizer.correct];
+    [self viewNextWord];
+}
+
+/*
 - (void)setupButtons
 {
     // Setup the UI view that contains the buttons.
@@ -331,6 +434,7 @@
                                                                multiplier:1.0
                                                                  constant:0]];
 }
+*/
 
 - (Word *)nextWord
 {
@@ -356,6 +460,7 @@
     }
 }
 
+/*
 - (void)addWordResultToRound:(id)sender
 {
     wordResultButton *buttonClicked = (wordResultButton *)sender;
@@ -363,6 +468,7 @@
     [game updateRound:self.currentWord :buttonClicked.correct];
     [self viewNextWord];
 }
+ */
 
 - (void) center:(UIView *)view
 {

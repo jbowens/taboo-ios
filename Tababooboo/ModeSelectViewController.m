@@ -52,8 +52,14 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = PrimaryBackgroundColor;
     [self addOptionButtons];
-    [self addBackButton];
-    [self addNextScreenButton];
+    [self addSwipeBack];
+}
+
+- (void)addSwipeBack
+{
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack)];
+    swipeGesture.direction = (UISwipeGestureRecognizerDirectionRight);
+    [self.view addGestureRecognizer:swipeGesture];
 }
 
 - (OptButton *) createOption
@@ -159,6 +165,7 @@
     self.teamButton.backgroundColor = PrimaryButtonBackgroundColor;
     buttonClicked.backgroundColor = PrimarySelectedButtonBackgroundColor;
     self.selectedOption = true;
+    [self playAction];
 }
 
 - (void)playAction
@@ -166,6 +173,7 @@
     [self.delegate switchToSelectTimeController];
 }
 
+/*
 - (void)addBackButton
 {
     self.backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -176,12 +184,14 @@
     [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
 }
+*/
 
 - (void)goBack
 {
     [self.delegate goBack];
 }
 
+/*
 - (void)addNextScreenButton
 {
     self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -193,7 +203,9 @@
     [self.nextButton addTarget:self action:@selector(nextScreen) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
 }
+*/
 
+/*
 - (void)nextScreen
 {
     if (self.selectedOption) {
@@ -202,6 +214,7 @@
         NSLog(@"Error: Select a play mode.");
     }
 }
+*/
 
 - (void)didReceiveMemoryWarning
 {

@@ -177,9 +177,9 @@
 				C471AB6A186F7C5C00E7206E /* GameViewController.m */,
 				D4E93707186E62B500DD000A /* SelectTimeViewController.h */,
 				D4E93708186E62B500DD000A /* SelectTimeViewController.m */,
-				C4B072241869568300055D92 /* AppDelegate.h */,
 				C471AB66186E58F000E7206E /* HomeViewController.h */,
 				C471AB67186E58F000E7206E /* HomeViewController.m */,
+				C4B072241869568300055D92 /* AppDelegate.h */,
 				C4B072251869568300055D92 /* AppDelegate.m */,
 				C4B072271869568300055D92 /* Main_iPhone.storyboard */,
 				C4B0722A1869568300055D92 /* Main_iPad.storyboard */,
@@ -281,7 +281,7 @@
 				ORGANIZATIONNAME = Tababooboo;
 				TargetAttributes = {
 					C4B072111869568300055D92 = {
-						DevelopmentTeam = KDYRJBGPGV;
+						DevelopmentTeam = 58M2Y4N75J;
 					};
 					C4B072351869568300055D92 = {
 						TestTargetID = C4B072111869568300055D92;
@@ -495,6 +495,7 @@
 				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
 				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -505,10 +506,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tababooboo/Tababooboo-Prefix.pch";
 				INFOPLIST_FILE = "Tababooboo/Tababooboo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
